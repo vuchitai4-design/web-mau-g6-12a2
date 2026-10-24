@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G6 - Trang Chủ Chính Thức</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="jp88-container" id="jp88-container">
+        
+        <!-- SIDEBAR TRÁI -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <button class="menu-toggle-btn" id="menuToggleBtn"><i class="fa-solid fa-bars"></i></button>
+                <div class="logo" id="logoHome" style="cursor: pointer;">G<span>6</span></div>
+            </div>
+
+            <div class="sidebar-menu" id="sidebarMenu">
+                <a href="#" class="menu-item vip-item active" data-target="home"><i class="fa-solid fa-gift"></i> <span>Ưu đãi mới nhất</span> <span class="badge-vip">VIP</span></a>
+                <a href="#" class="menu-item" data-target="wheel8"><i class="fa-solid fa-spinner"></i> <span>Vòng Quay 8 Ô</span></a>
+                <a href="#" class="menu-item" data-target="inventory"><i class="fa-solid fa-toolbox"></i> <span>Rương Vật Phẩm</span></a>
+                <a href="#" class="menu-item" data-target="taixiu"><i class="fa-solid fa-dice"></i> <span>Tài Xỉu</span></a>
+                <a href="#" class="menu-item" data-target="amulet"><i class="fa-solid fa-ring"></i> <span>Vẽ Bùa</span></a>
+                <a href="#" class="menu-item" data-target="slot"><i class="fa-solid fa-check-to-slot"></i> <span>Slot Machine</span></a>
+                <a href="#" class="menu-item" data-target="lottery"><i class="fa-solid fa-ticket"></i> <span>Xổ Số</span></a>
+                <a href="#" class="menu-item" data-target="conversion"><i class="fa-solid fa-arrow-right-arrow-left"></i> <span>Quy Đổi</span></a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="lang-selector">
+                    <i class="fa-solid fa-globe"></i> <span>Việt Nam</span> <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="theme-toggle">
+                    <button class="theme-btn active" id="btn-dark"><i class="fa-solid fa-moon"></i> <span>Tối</span></button>
+                    <button class="theme-btn" id="btn-light"><i class="fa-solid fa-sun"></i> <span>Sáng</span></button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- KHUNG NỘI DUNG CHÍNH BÊN PHẢI -->
+        <main class="main-content">
+            
+            <!-- TOP NAVBAR -->
+            <header class="top-navbar">
+                <nav class="nav-links" id="topNavLinks">
+                    <a href="#" class="nav-item active" data-target="home"><i class="fa-solid fa-gift" style="color: #ff4757;"></i> Khuyến mãi</a>
+                    <a href="#" class="nav-item" data-target="wheel8"><i class="fa-solid fa-spinner"></i> Vòng Quay 8 Ô</a>
+                    <a href="#" class="nav-item" data-target="inventory"><i class="fa-solid fa-toolbox"></i> Rương Vật Phẩm</a>
+                    <a href="#" class="nav-item" data-target="taixiu"><i class="fa-solid fa-dice"></i> Tài Xỉu</a>
+                    <a href="#" class="nav-item" data-target="amulet"><i class="fa-solid fa-ring"></i> Vẽ Bùa</a>
+                    <a href="#" class="nav-item" data-target="slot"><i class="fa-solid fa-check-to-slot"></i> Slot Machine</a>
+                    <a href="#" class="nav-item" data-target="lottery"><i class="fa-solid fa-ticket"></i> Xổ Số</a>
+                    <a href="#" class="nav-item" data-target="conversion"><i class="fa-solid fa-arrow-right-arrow-left"></i> Quy Đổi</a>
+                </nav>
+                <div class="auth-buttons" id="authButtonsArea">
+                    <div class="token-display-badge" id="tokenDisplayArea" style="display: none; align-items: center; gap: 0.4vw; background: rgba(241, 196, 15, 0.15); border: 0.05vw solid #f1c40f; padding: 0.25vw 0.6vw; border-radius: 0.4vw; margin-right: 0.6vw;">
+                        <span class="token-icon-mini"></span>
+                        <span id="user-token-count" style="font-family: 'Orbitron', sans-serif; font-size: 0.75vw; color: #f1c40f; font-weight: bold;">0</span>
+                    </div>
+                    <button class="btn-login" id="openLoginModal">Đăng Nhập</button>
+                    <button class="btn-register" id="openRegisterModal">Đăng Ký</button>
+                </div>
+            </header>
+
+            <!-- NỘI DUNG TRANG CHỦ (VIEW 1) -->
+            <div class="content-body" id="homeView" style="display: block;">
+                <div class="hero-banner">
+                    <div class="hero-text-content">
+                        <h2>NẠP LẦN ĐẦU</h2>
+                        <p>Chơi không lo sầu!</p>
+                        <button class="btn-hero-register" id="heroRegisterBtn">Nạp Ngay</button>
+                    </div>
+                </div>
+
+                <div class="promo-grid" style="margin-top: 1.5vw;">
+                    <div class="promo-card card-1">
+                        <div class="promo-info">
+                            <h3>ĐĂNG KÝ <span class="highlight">LẦN ĐẦU</span></h3>
+                            <p>NHẬN NGAY <span class="highlight">10 TOKEN</span></p>
+                        </div>
+                    </div>
+                    <div class="promo-card card-2">
+                        <div class="promo-info">
+                            <h3>CHƠI MIỄN PHÍ</h3>
+                            <p>CÙNG <strong>G6</strong>, CHƠI LÀ NGHIỆN!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BĂNG CHUYỀN (CAROUSEL) -->
+                <div class="carousel-section" style="margin-top: 1.5vw;">
+                    <div class="carousel-container" id="gameCarousel">
+                        <div class="carousel-track" id="carouselTrack">
+                            <div class="carousel-page">
+                                <div class="game-card" onclick="document.querySelector('.nav-item[data-target=\'wheel8\']').click();">
+                                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=600&q=80')"></div>
+                                    <span class="game-title">Vòng Quay 8 Ô</span>
+                                </div>
+                                <div class="game-card" onclick="document.querySelector('.nav-item[data-target=\'inventory\']').click();">
+                                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=600&q=80')"></div>
+                                    <span class="game-title">Rương Vật Phẩm</span>
+                                </div>
+                                <div class="game-card" onclick="document.querySelector('.nav-item[data-target=\'slot\']').click();">
+                                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80')"></div>
+                                    <span class="game-title">Slot Machine</span>
+                                </div>
+                            </div>
+                            <div class="carousel-page">
+                                <div class="game-card" onclick="document.querySelector('.nav-item[data-target=\'lottery\']').click();">
+                                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80')"></div>
+                                    <span class="game-title">Xổ Số</span>
+                                </div>
+                                <div class="game-card">
+                                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80')"></div>
+                                    <span class="game-title">Tài Xỉu</span>
+                                </div>
+                                <div class="game-card">
+                                    <div class="game-thumb" style="background-image: url('https://images.unsplash.com/photo-1511193311914-0346f16efe90?auto=format&fit=crop&w=600&q=80')"></div>
+                                    <span class="game-title">Vẽ Bùa</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-dots" id="carouselDots">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NỘI DUNG VÒNG QUAY 8 Ô (VIEW 2) -->
+            <div class="content-body" id="wheel8View" style="display: none;">
+                <div class="wheel-solo-container">
+                    <div class="wheel-main-box">
+                        <h2 class="wheel-title">🎡 VÒNG QUAY 8 Ô 🎡</h2>
+                        
+                        <div class="diamond-wheel-wrapper">
+                            <div class="diamond-grid" id="diamondGrid">
+                                <div class="wheel-cell" data-index="0"><img src="RESOURCE\Giấy vẽ bùa.png" alt="Giấy vẽ bùa" class="cell-img"><span class="cell-count">2</span></div>
+                                <div class="wheel-cell" data-index="1"><img src="RESOURCE\Giấy vẽ bùa.png" alt="Giấy vẽ bùa" class="cell-img"></div>
+                                <div class="wheel-cell" data-index="2"><img src="RESOURCE\Rương SS+.png" alt="Rương" class="cell-img"></div>
+                                <div class="wheel-cell" data-index="7"><img src="RESOURCE\Giấy vẽ bùa.png" alt="Giấy vẽ bùa" class="cell-img"><span class="cell-count">3</span></div>
+                                
+                                <div class="wheel-center-btn" id="wheelSpinCenter">
+                                    <span class="center-text">
+                                        QUAY<br><span class="token-inline">3 <span class="token-icon-mini"></span></span>
+                                    </span>
+                                </div>
+                                
+                                <div class="wheel-cell" data-index="3"><img src="RESOURCE\Giấy vẽ bùa.png" alt="Giấy vẽ bùa" class="cell-img"><span class="cell-count">3</span></div>
+                                <div class="wheel-cell" data-index="6"><img src="RESOURCE\Giấy vẽ bùa.png" alt="Giấy vẽ bùa" class="cell-img"><span class="cell-count">5</span></div>
+                                <div class="wheel-cell" data-index="5"><img src="RESOURCE\Giấy vẽ bùa.png" alt="Giấy vẽ bùa" class="cell-img"><span class="cell-count"></span></div>
+                                <div class="wheel-cell" data-index="4"><img src="RESOURCE\Giấy vẽ bùa.png" alt="Giấy vẽ bùa" class="cell-img"><span class="cell-count">2</span></div>
+                            </div>
+                        </div>
+
+                        <div class="wheel-action-area">
+                            <button class="btn-casino btn-spin-1" id="btn-wheel-spin">
+                                🎡 QUAY VÒNG QUAY (3 <span class="token-icon-btn"></span>)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NỘI DUNG RƯƠNG VẬT PHẨM (MỞ RƯƠNG 25 TOKEN) -->
+            <div class="content-body" id="chestGameView" style="display: none;">
+                <div class="chest-game-container">
+                    <div class="chest-main-box">
+                        <h2 class="chest-title">📦 RƯƠNG VẬT PHẨM 📦</h2>
+                        <p class="chest-subtitle">Chi phí mở: <span class="highlight">25</span> <span class="token-icon-mini"></span> / lần mở</p>
+                        
+                        <div class="chests-grid-wrapper">
+                            <div class="chests-grid" id="chestsGrid">
+                                <div class="chest-card" data-id="0"><div class="chest-box-img"></div><span>Rương Vật Phẩm</span></div>
+                                <div class="chest-card" data-id="1"><div class="chest-box-img"></div><span>Rương Vật Phẩm</span></div>
+                                <div class="chest-card" data-id="2"><div class="chest-box-img"></div><span>Rương Vật Phẩm</span></div>
+                                <div class="chest-card" data-id="3"><div class="chest-box-img"></div><span>Rương Vật Phẩm</span></div>
+                                <div class="chest-card" data-id="4"><div class="chest-box-img"></div><span>Rương Vật Phẩm</span></div>
+                                <div class="chest-card" data-id="5"><div class="chest-box-img"></div><span>Rương Vật Phẩm</span></div>
+                                <div class="chest-card" data-id="6"><div class="chest-box-img"></div><span>Rương Vật Phẩm</span></div>
+                                <div class="chest-card" data-id="7"><div class="chest-box-img"></div><span>Rương Vật Phẩm</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NỘI DUNG SLOT MACHINE -->
+            <div class="content-body" id="slotView" style="display: none;">
+                <div class="slot-game-container">
+                    <div class="slot-main-box">
+                        <h2 class="slot-title">🎰 SLOT MACHINE 🎰</h2>
+                        <p class="slot-subtitle">Chi phí quay: <span class="highlight">25</span> <span class="token-icon-mini"></span> / lần</p>
+                        
+                        <div class="slot-machine-frame">
+                            <div class="slot-screen">
+                                <div class="slot-reel" id="reel1"><div class="slot-symbol"><img src="RESOURCE/Rương A.png" alt="Symbol" class="symbol-img"></div></div>
+                                <div class="slot-reel" id="reel2"><div class="slot-symbol"><img src="RESOURCE/Rương S.png" alt="Symbol" class="symbol-img"></div></div>
+                                <div class="slot-reel" id="reel3"><div class="slot-symbol"><img src="RESOURCE/Giấy vẽ bùa.png" alt="Symbol" class="symbol-img"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="slot-action-area">
+                            <button class="btn-casino btn-spin-slot" id="btnSlotSpin">
+                                🎰 QUAY NGAY (25 <span class="token-icon-btn"></span>)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NỘI DUNG XỔ SỐ (VIEW LOTTERY) -->
+            <div class="content-body" id="lotteryView" style="display: none;">
+                <div class="lottery-game-container">
+                    <div class="lottery-main-box">
+                        <h2 class="lottery-title">🎫 XỔ SỐ CÀO VÉ 🎫</h2>
+                        <p class="lottery-subtitle">Chi phí cào: <span class="highlight">12</span> <span class="token-icon-mini"></span> / vé | Chọn 1 trong 9 vé may mắn!</p>
+                        
+                        <div class="lottery-stage" id="lotteryStage">
+                            <div class="lottery-ticket-wrapper" data-index="0" style="--i: -4;">
+                                <div class="lottery-ticket">
+                                    <div class="ticket-back">🎟️ G6 LOTTO</div>
+                                    <div class="ticket-front">
+                                        <canvas class="scratch-canvas" width="200" height="140"></canvas>
+                                        <div class="prize-reveal">
+                                            <img src="" alt="Prize" class="lottery-prize-img">
+                                            <span class="lottery-prize-text">Đang tải...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lottery-ticket-wrapper" data-index="1" style="--i: -3;">
+                                <div class="lottery-ticket">
+                                    <div class="ticket-back">🎟️ G6 LOTTO</div>
+                                    <div class="ticket-front">
+                                        <canvas class="scratch-canvas" width="200" height="140"></canvas>
+                                        <div class="prize-reveal">
+                                            <img src="" alt="Prize" class="lottery-prize-img">
+                                            <span class="lottery-prize-text">Đang tải...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lottery-ticket-wrapper" data-index="2" style="--i: -2;">
+                                <div class="lottery-ticket">
+                                    <div class="ticket-back">🎟️ G6 LOTTO</div>
+                                    <div class="ticket-front">
+                                        <canvas class="scratch-canvas" width="200" height="140"></canvas>
+                                        <div class="prize-reveal">
+                                            <img src="" alt="Prize" class="lottery-prize-img">
+                                            <span class="lottery-prize-text">Đang tải...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lottery-ticket-wrapper" data-index="3" style="--i: -1;">
+                                <div class="lottery-ticket">
+                                    <div class="ticket-back">🎟️ G6 LOTTO</div>
+                                    <div class="ticket-front">
+                                        <canvas class="scratch-canvas" width="200" height="140"></canvas>
+                                        <div class="prize-reveal">
+                                            <img src="" alt="Prize" class="lottery-prize-img">
+                                            <span class="lottery-prize-text">Đang tải...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lottery-ticket-wrapper" data-index="4" style="--i: 0;">
+                                <div class="lottery-ticket">
+                                    <div class="ticket-back">🎟️ G6 LOTTO</div>
+                                    <div class="ticket-front">
+                                        <canvas class="scratch-canvas" width="200" height="140"></canvas>
+                                        <div class="prize-reveal">
+                                            <img src="" alt="Prize" class="lottery-prize-img">
+                                            <span class="lottery-prize-text">Đang tải...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lottery-ticket-wrapper" data-index="5" style="--i: 1;">
+                                <div class="lottery-ticket">
+                                    <div class="ticket-back">🎟️ G6 LOTTO</div>
+                                    <div class="ticket-front">
+                                        <canvas class="scratch-canvas" width="200" height="140"></canvas>
+                                        <div class="prize-reveal">
+                                            <img src="" alt="Prize" class="lottery-prize-img">
+                                            <span class="lottery-prize-text">Đang tải...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lottery-ticket-wrapper" data-index="6" style="--i: 2;">
+                                <div class="lottery-ticket">
+                                    <div class="ticket-back">🎟️ G6 LOTTO</div>
+                                    <div class="ticket-front">
+                                        <canvas class="scratch-canvas" width="200" height="140"></canvas>
+                                        <div class="prize-reveal">
+                                            <img src="" alt="Prize" class="lottery-prize-img">
+                                            <span class="lottery-prize-text">Đang tải...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lottery-ticket-wrapper" data-index="7" style="--i: 3;">
+                                <div class="lottery-ticket">
+                                    <div class="ticket-back">🎟️ G6 LOTTO</div>
+                                    <div class="ticket-front">
+                                        <canvas class="scratch-canvas" width="200" height="140"></canvas>
+                                        <div class="prize-reveal">
+                                            <img src="" alt="Prize" class="lottery-prize-img">
+                                            <span class="lottery-prize-text">Đang tải...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lottery-ticket-wrapper" data-index="8" style="--i: 4;">
+                                <div class="lottery-ticket">
+                                    <div class="ticket-back">🎟️ G6 LOTTO</div>
+                                    <div class="ticket-front">
+                                        <canvas class="scratch-canvas" width="200" height="140"></canvas>
+                                        <div class="prize-reveal">
+                                            <img src="" alt="Prize" class="lottery-prize-img">
+                                            <span class="lottery-prize-text">Đang tải...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lottery-action-area">
+                            <button class="btn-casino btn-reset-lottery" id="btnResetLottery" style="display: none;">
+                                🔄 CHƠI VÁN MỚI (12 <span class="token-icon-btn"></span>)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NỘI DUNG TÀI XỈU (VIEW TÀI XỈU) -->
+            <div class="content-body" id="taixiuView" style="display: none;">
+                <div class="taixiu-game-container">
+                    <div class="taixiu-main-box" id="taixiuMainBox">
+                        <div class="taixiu-header">
+                            <h2 class="taixiu-title">🎲 TÀI XỈU 🎲</h2>
+                            <div class="taixiu-session-info">Phiên #<span id="txSessionNum">3409</span> | Thời gian đặt cược: <span id="txTimer" style="color: #f1c40f; font-weight: bold;">30</span>s</div>
+                        </div>
+
+                        <div class="taixiu-table">
+                            <!-- Cửa TÀI (Bên trái) -->
+                            <div class="tx-side tx-tai" id="txTaiSide">
+                                <div class="tx-side-title">TÀI</div>
+                                <div class="tx-sub-info">Tổng (11 - 18)</div>
+                                <div class="tx-user-bet">Bạn cược: <span id="txTaiUser">0</span> <span class="token-icon-mini"></span></div>
+                                <div class="tx-side-btns">
+                                    <button class="btn-tx-bet" id="btnTxTai">ĐẶT TÀI</button>
+                                </div>
+                            </div>
+
+                            <!-- Vùng xúc xắc & Đĩa úp (Ở giữa) -->
+                            <div class="tx-center-arena">
+                                <div class="tx-dice-cup-area">
+                                    <div class="tx-dice-container" id="txDiceContainer">
+                                        <div class="tx-dice" id="txDice1">⚀</div>
+                                        <div class="tx-dice" id="txDice2">⚁</div>
+                                        <div class="tx-dice" id="txDice3">⚂</div>
+                                    </div>
+                                    <div class="tx-bowl" id="txBowl">
+                                        <div class="tx-bowl-inner">ĐĨA LẮC</div>
+                                    </div>
+                                </div>
+                                <div class="tx-result-announcement" id="txResultAnnouncement">Đang chờ phiên mới...</div>
+                            </div>
+
+                            <!-- Cửa XỈU (Bên phải) -->
+                            <div class="tx-side tx-xiu" id="txXiuSide">
+                                <div class="tx-side-title">XỈU</div>
+                                <div class="tx-sub-info">Tổng (3 - 10)</div>
+                                <div class="tx-user-bet">Bạn cược: <span id="txXiuUser">0</span> <span class="token-icon-mini"></span></div>
+                                <div class="tx-side-btns">
+                                    <button class="btn-tx-bet" id="btnTxXiu">ĐẶT XỈU</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel chọn mức cược & Nút Hủy Cược -->
+                        <div class="tx-bet-control-panel">
+                            <span>Mức cược (1 - 20 Token):</span>
+                            <input type="number" id="txBetInput" min="1" max="20" value="5" class="tx-input">
+                            <div class="tx-quick-chips">
+                                <button class="tx-chip" data-val="1">1</button>
+                                <button class="tx-chip" data-val="5">5</button>
+                                <button class="tx-chip" data-val="10">10</button>
+                                <button class="tx-chip" data-val="20">20</button>
+                            </div>
+                            <button class="btn-tx-cancel" id="btnTxCancel">HỦY CƯỢC</button>
+                        </div>
+
+                        <!-- Bảng lịch sử cầu Tài Xỉu (Căn góc trái trên, có cuộn ngang) -->
+                        <div class="tx-history-board-container">
+                            <div class="tx-history-title">📊 BẢNG LỊCH SỬ CẦU TÀI XỈU</div>
+                            <div class="tx-history-scroll-wrapper">
+                                <div class="tx-history-grid" id="txHistoryGrid"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NỘI DUNG VẼ BÙA (VIEW AMULET) -->
+            <div class="content-body" id="amuletView" style="display: none;">
+                <div class="amulet-game-container">
+                    <!-- BƯỚC 1: CHỌN SỐ LƯỢT VẼ -->
+                    <div class="amulet-lobby-box" id="amuletLobbyBox">
+                        <h2 class="amulet-main-title">🔮 VÒNG TRÒN KỲ BÍ 🔮</h2>
+                        <p class="amulet-subtitle">Dùng <strong>Giấy vẽ bùa</strong> để triệu hồi phần thưởng đặc biệt!</p>
+                        <div class="amulet-balance-box">
+                            <span>Giấy vẽ bùa hiện có: <strong id="amuletUserPaperCount" style="color: #3498db;">0</strong> <img src="RESOURCE/Giấy vẽ bùa.png" class="amulet-balance-icon"></span>
+                        </div>
+                        <div class="amulet-options-row">
+                            <button class="btn-amulet-choice" id="btnDraw1">
+                                <span class="choice-name">Vẽ 1 Lần</span>
+                                <span class="choice-cost">5 <img src="RESOURCE/Giấy vẽ bùa.png" class="amulet-cost-icon"></span>
+                            </button>
+                            <button class="btn-amulet-choice" id="btnDraw5">
+                                <span class="choice-name">Vẽ 5 Lần</span>
+                                <span class="choice-cost">25 <img src="RESOURCE/Giấy vẽ bùa.png" class="amulet-cost-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- BƯỚC 2: MÀN HÌNH VẼ 8 TRỤC ĐỐI XỨNG -->
+                    <div class="amulet-canvas-box" id="amuletCanvasBox" style="display: none;">
+                        <div class="amulet-circle-wrapper">
+                            <canvas id="amuletCanvas" width="500" height="500"></canvas>
+                        </div>
+                        <p class="amulet-tip">✨ Hãy vẽ một nét bất kỳ, 8 trục đối xứng sẽ tự động tái tạo bùa chú! ✨</p>
+                    </div>
+
+                    <!-- BƯỚC 3: HIỆU ỨNG CHỜ & KẾT QUẢ -->
+                    <div class="amulet-result-overlay" id="amuletResultOverlay" style="display: none;">
+                        <div class="amulet-result-content">
+                            <h3 class="amulet-result-title">🌟 CHÚC MỪNG QUAY ĐƯỢC 🌟</h3>
+                            <div class="amulet-rewards-grid" id="amuletRewardsGrid"></div>
+                            <div class="amulet-result-actions">
+                                <button class="btn-amulet-ok" id="btnAmuletOk">OK</button>
+                                <button class="btn-amulet-again" id="btnAmuletAgain">Vẽ Thêm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NỘI DUNG QUY ĐỔI (VIEW CONVERSION) -->
+            <div class="content-body" id="conversionView" style="display: none;">
+                <div class="conversion-game-container">
+                    <div class="conversion-main-box">
+                        <div class="conversion-header">
+                            <h2 class="conversion-title">🔄 CỬA HÀNG QUY ĐỔI VẬT PHẨM 🔄</h2>
+                            <p class="conversion-subtitle">Dùng Token hoặc Huy hiệu để đổi các phần thưởng giá trị vào Tủ đồ!</p>
+                        </div>
+                        <div class="conversion-balance-box">
+                            <span>Huy hiệu của bạn: <strong id="convUserBadgeCount" style="color: #2ecc71;">0</strong> <img src="RESOURCE/Huy hiệu.png" class="conv-balance-badge-icon"></span>
+                        </div>
+                        <div class="conversion-grid" id="conversionGrid"></div>
+                    </div>
+                </div>
+
+                <!-- MODAL CHỌN SỐ LƯỢNG (THANH KÉO + / -) -->
+                <div class="conv-modal-overlay" id="convModalOverlay" style="display: none;">
+                    <div class="conv-modal-content">
+                        <h3 class="conv-modal-title">📦 CHỌN SỐ LƯỢT QUY ĐỔI</h3>
+                        <div class="conv-modal-item-preview">
+                            <img id="convModalImg" src="" alt="Item" class="conv-modal-img">
+                            <span id="convModalItemName" class="conv-modal-name">Tên vật phẩm</span>
+                        </div>
+                        
+                        <div class="conv-slider-area">
+                            <button class="conv-qty-btn" id="convMinusBtn">-</button>
+                            <input type="range" id="convRangeInput" min="1" max="50" value="1" class="conv-range">
+                            <button class="conv-qty-btn" id="convPlusBtn">+</button>
+                            <input type="number" id="convNumInput" min="1" max="50" value="1" class="conv-num-input">
+                        </div>
+
+                        <div class="conv-total-cost-display">
+                            Tổng giá cần trả: <span id="convTotalCostVal" style="color: #2ecc71; font-weight: bold;">0</span> <span id="convCostIconContainer"></span>
+                        </div>
+
+                        <div class="conv-modal-actions">
+                            <button class="btn-conv-action btn-conv-cancel" id="convModalCancel">Hủy</button>
+                            <button class="btn-conv-action btn-conv-next" id="convModalNext">Tiếp tục</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODAL XÁC NHẬN LẦN CUỐI -->
+                <div class="conv-modal-overlay" id="convConfirmOverlay" style="display: none;">
+                    <div class="conv-modal-content">
+                        <h3 class="conv-modal-title">⚠️ XÁC NHẬN QUY ĐỔI</h3>
+                        <p id="convConfirmText" class="conv-confirm-text">Bạn có chắc chắn muốn đổi số lượng này không?</p>
+                        <div class="conv-modal-actions">
+                            <button class="btn-conv-action btn-conv-cancel" id="convConfirmNo">Hủy bỏ</button>
+                            <button class="btn-conv-action btn-conv-confirm" id="convConfirmYes">Chắc chắn</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NỘI DUNG CÁC MỤC KHÁC -->
+            <div class="content-body" id="otherView" style="display: none; text-align: center; padding: 4vw;">
+                <h2 style="font-size: 2vw; color: #f1c40f; margin-bottom: 1vw;"><i class="fa-solid fa-tools"></i> Tính năng đang phát triển</h2>
+                <p style="color: #b2b2c2; font-size: 1vw;">Vui lòng trải nghiệm các tính năng khác trên thanh menu!</p>
+            </div>
+
+            <!-- FOOTER CHÂN TRANG ĐỘNG -->
+            <footer class="jp88-footer">
+                <div class="footer-top-links">
+                    <div class="footer-col">
+                        <h4>Về Chúng Tôi</h4>
+                        <ul>
+                            <li><span class="footer-hover-text">Điều khoản & Điều kiện</span></li>
+                            <li><span class="footer-hover-text">Về chúng tôi</span></li>
+                            <li><span class="footer-hover-text">Chính sách quyền riêng tư</span></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Dịch Vụ</h4>
+                        <ul>
+                            <li><a href="#">Thể thao</a></li>
+                            <li><a href="#">Casino Trực Tuyến</a></li>
+                            <li><a href="#">Nổ hũ</a></li>
+                            <li><a href="#">Thể thao điện tử</a></li>
+                            <li><a href="#">Xổ số</a></li>
+                            <li><a href="#">Bắn cá</a></li>
+                            <li><a href="#">Game nhanh & Đối kháng</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Hỗ trợ</h4>
+                        <ul>
+                            <li><span class="footer-hover-text">Trung tâm hỗ trợ</span></li>
+                            <li><span class="footer-hover-text">Chính sách bảo mật</span></li>
+                            <li><span class="footer-hover-text">Hướng dẫn chơi</span></li>
+                            <li><span class="footer-hover-text">Hướng dẫn nạp tiền</span></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Tìm hiểu thêm</h4>
+                        <ul>
+                            <li><span class="footer-hover-text">Thưởng Chào Mừng</span></li>
+                            <li><span class="footer-hover-text">Thưởng nạp lại hàng tuần</span></li>
+                            <li><span class="footer-hover-text">Đặc quyền VIP</span></li>
+                            <li><span class="footer-hover-text">Giải đấu</span></li>
+                            <li><span class="footer-hover-text">Ưu đãi đặc biệt</span></li>
+                            <li><span class="footer-hover-text">Điều khoản tiền thưởng</span></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Chơi có trách nhiệm</h4>
+                        <ul>
+                            <li><span class="footer-hover-text">BeGambleAware</span></li>
+                            <li><span class="footer-hover-text">Gamblers Anonymous</span></li>
+                            <li><span class="footer-hover-text">Gambling Therapy</span></li>
+                            <li><span class="footer-hover-text">Chơi có trách nhiệm</span></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Cộng đồng</h4>
+                        <div class="social-icons">
+                            <a href="#" class="telegram-btn" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        </div>
+                        <div class="footer-lang-select">
+                            <span class="flag-icon">🇻🇳</span>
+                            <span>Việt Nam</span>
+                            <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <div class="footer-bottom">
+                    <div class="footer-bottom-info">
+                        <p class="copyright-text">© 2026 Group6 | All Rights Reserved.</p>
+                        <div class="age-warning-box">
+                            <div class="badge-18">18+</div>
+                            <p class="warning-text">Cờ bạc có thể gây nghiện, hãy đánh bạc có trách nhiệm.</p>
+                        </div>
+                    </div>
+                    <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                        <i class="fa-solid fa-chevron-up"></i>
+                        <span>Top</span>
+                    </button>
+                </div>
+            </footer>
+
+        </main>
+
+        <!-- WIDGET CHAT -->
+        <div class="live-chat-float">
+            <i class="fa-solid fa-comment-dots"></i>
+        </div>
+
+        <!-- NÚT BALO (TỦ ĐỒ) NẰM TRÊN NÚT CHAT -->
+        <div class="backpack-float" id="backpackFloatBtn" title="Tủ Đồ Vật Phẩm">
+            <i class="fa-solid fa-box-archive"></i>
+        </div>
+
+        <!-- AUTH MODAL -->
+        <div class="auth-modal-overlay" id="authModalOverlay">
+            <div class="auth-modal-box">
+                <div class="auth-banner-col">
+                    <div class="auth-banner-text">
+                        <h2>Chào mừng bạn đến <span class="brand-gold">Group6</span></h2>
+                    </div>
+                </div>
+
+                <div class="auth-form-col">
+                    <button class="modal-close-x" id="closeModalBtn">&times;</button>
+
+                    <!-- VIEW 1: ĐĂNG NHẬP -->
+                    <div id="loginView" class="auth-form-view">
+                        <h3 class="modal-main-title">Đăng nhập tài khoản</h3>
+                        <div class="form-group">
+                            <input type="email" id="loginEmailVal" placeholder="Nhập địa chỉ E-Mail của bạn" class="auth-input">
+                        </div>
+                        <div class="form-group password-wrap">
+                            <input type="password" id="loginPasswordVal" placeholder="Mật khẩu của bạn" class="auth-input">
+                            <i class="fa-regular fa-eye toggle-pwd" data-target="loginPasswordVal"></i>
+                        </div>
+                        <div class="form-extra-row">
+                            <a href="#" class="forgot-pwd-link">Quên mật khẩu?</a>
+                        </div>
+                        <button class="btn-auth-submit" id="submitLoginBtn">Đăng Nhập Ngay</button>
+                        <div class="auth-switch-text">
+                            Bạn là người dùng mới? <a href="#" id="linkToRegister">Tạo tài khoản</a>
+                        </div>
+                    </div>
+
+                    <!-- VIEW 2: ĐĂNG KÝ -->
+                    <div id="registerView" class="auth-form-view" style="display: none;">
+                        <h3 class="modal-main-title">Đăng ký thành viên</h3>
+                        <div class="form-group">
+                            <input type="email" id="regEmailVal" placeholder="Nhập địa chỉ E-Mail của bạn" class="auth-input">
+                        </div>
+                        <div class="form-group otp-group" style="display: flex; gap: 0.52vw;">
+                            <input type="text" id="regOtpVal" placeholder="Mã xác minh 6 số" class="auth-input" style="flex: 1;">
+                            <button type="button" id="sendOtpBtn" class="btn-send-otp" style="padding: 0 0.78vw; background: #2980b9; color: #fff; border: none; border-radius: 0.31vw; cursor: pointer; font-weight: bold; font-size: 0.73vw;">Lấy Mã</button>
+                        </div>
+                        <div class="form-group password-wrap">
+                            <input type="password" id="regPasswordVal" placeholder="Mật khẩu của bạn" class="auth-input">
+                            <i class="fa-regular fa-eye toggle-pwd" data-target="regPasswordVal"></i>
+                        </div>
+                        <div class="form-terms-row">
+                            <label class="terms-label">
+                                <input type="checkbox" id="termsCheck" checked> 
+                                <span>tôi đồng ý <strong>sự thỏa thuận của người dùng</strong> và được xác nhận là trên 18 tuổi</span>
+                            </label>
+                        </div>
+                        <button class="btn-auth-submit" id="submitRegisterBtn">Xác Thực & Đăng Ký</button>
+                        <div class="auth-switch-text">
+                            Bạn đã có tài khoản? <a href="#" id="linkToLogin">Đăng nhập</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL TỦ ĐỒ (INVENTORY MODAL) -->
+    <div class="inventory-modal-overlay" id="inventoryModalOverlay">
+        <div class="inventory-modal-box">
+            <button class="modal-close-x" id="closeInventoryModal">&times;</button>
+            <h3 class="inventory-title">TỦ ĐỒ VẬT PHẨM</h3>
+            <div class="inventory-grid" id="inventoryGrid"></div>
+        </div>
+    </div>
+
+    <!-- POPUP THẮNG CƯỞC -->
+    <div class="win-popup" id="win-popup">
+        <div class="win-card" id="win-card">
+            <div class="win-tier" id="win-tier">HUYỀN THOẠI</div>
+            <div class="win-icon" id="win-icon"></div>
+            <div class="win-msg">CHÚC MỪNG BẠN!</div>
+            <div class="win-amount" id="win-amount">Huy Hiệu (x3)</div>
+        </div>
+    </div>
+
+    <!-- CUSTOM POPUP ALERT THAY CHO ALERT MẶC ĐỊNH -->
+    <div class="custom-alert-overlay" id="customAlertOverlay">
+        <div class="custom-alert-box">
+            <div class="custom-alert-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+            <div class="custom-alert-message" id="customAlertMessage">Nội dung thông báo</div>
+            <button class="custom-alert-btn" id="customAlertBtn">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
