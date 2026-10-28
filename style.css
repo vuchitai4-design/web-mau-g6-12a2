@@ -1,48 +1,30 @@
 /* ==========================================
-   JP88 INTERFACE STYLING (DARK & LIGHT MODE)
+   SANRIO MAGICAL LAND - CUTE PINK & YELLOW STYLING
    ========================================== */
 :root {
-    --bg-body: #0b0b0e;
-    --bg-main: #0b0b0e;
-    --bg-sidebar: #121218;
-    --bg-navbar: #121218;
-    --bg-footer: #12100e;
-    --bg-lang: #1a1a26;
-    --text-main: #fff;
-    --text-sub: #b2b2c2;
-    --border-color: #1f1f2e;
-    --card-bg-1: linear-gradient(135deg, #112233 0%, #0a0f18 100%);
-    --card-bg-2: linear-gradient(135deg, #331122 0%, #180a0f 100%);
-
-    --footer-text: #b2b2c2;
-    --footer-heading: #ffffff;
-    --footer-border: rgba(255, 255, 255, 0.05);
-    --footer-subtext: #8c8c9e;
-    --footer-lang-bg: #201e1c;
-    --footer-lang-border: #33312e;
-    --footer-top-btn-bg: #242220;
+    --bg-body: #fff0f5;
+    --bg-main: #fff0f5;
+    --bg-sidebar: #ffe4e1;
+    --bg-navbar: #ffe4e1;
+    --bg-lang: #fff;
+    --text-main: #4a2e35;
+    --text-sub: #8c6873;
+    --border-color: #ffb6c1;
+    --card-bg-1: linear-gradient(135deg, #ffc0cb 0%, #ffb6c1 100%);
+    --card-bg-2: linear-gradient(135deg, #fffacd 0%, #ffeb3b 100%);
 }
 
 .jp88-container.light-mode {
-    --bg-body: #f0f2f5;
-    --bg-main: #f0f2f5;
-    --bg-sidebar: #ffffff;
-    --bg-navbar: #ffffff;
-    --bg-footer: #e2e8f0;
-    --bg-lang: #edf2f7;
-    --text-main: #2d3748;
-    --text-sub: #4a5568;
-    --border-color: #e2e8f0;
-    --card-bg-1: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
-    --card-bg-2: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
-
-    --footer-text: #4a5568;
-    --footer-heading: #2d3748;
-    --footer-border: rgba(0, 0, 0, 0.08);
-    --footer-subtext: #718096;
-    --footer-lang-bg: #ffffff;
-    --footer-lang-border: #cbd5e0;
-    --footer-top-btn-bg: #ffffff;
+    --bg-body: #fffacd;
+    --bg-main: #fffacd;
+    --bg-sidebar: #fff8dc;
+    --bg-navbar: #fff8dc;
+    --bg-lang: #ffffff;
+    --text-main: #5c4033;
+    --text-sub: #8b7355;
+    --border-color: #ffd700;
+    --card-bg-1: linear-gradient(135deg, #ffeb3b 0%, #ffd700 100%);
+    --card-bg-2: linear-gradient(135deg, #ffc0cb 0%, #ffb6c1 100%);
 }
 
 * {
@@ -52,7 +34,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Quicksand', 'Comic Neue', sans-serif;
     background-color: var(--bg-body);
     color: var(--text-main);
     min-height: 100vh;
@@ -69,9 +51,9 @@ body {
 
 /* --- SIDEBAR TRÁI --- */
 .sidebar {
-    width: 13.54vw;
+    width: 14.5vw;
     background-color: var(--bg-sidebar);
-    border-right: 0.052vw solid var(--border-color);
+    border-right: 0.15vw dashed var(--border-color);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -80,122 +62,135 @@ body {
     left: 0;
     top: 0;
     z-index: 100;
-    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, border-color 0.3s ease;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0.2vw 0 1vw rgba(255, 182, 193, 0.3);
 }
 
 .sidebar-brand {
     display: flex;
     align-items: center;
     gap: 0.78vw;
-    padding: 0.78vw 1.04vw;
-    border-bottom: 0.052vw solid var(--border-color);
+    padding: 1vw 1.2vw;
+    border-bottom: 0.15vw dashed var(--border-color);
 }
 
 .menu-toggle-btn {
-    background: var(--bg-lang);
+    background: #ff69b4;
     border: none;
-    color: var(--text-main);
-    padding: 0.41vw 0.52vw;
-    border-radius: 0.31vw;
+    color: #fff;
+    padding: 0.5vw 0.6vw;
+    border-radius: 50%;
     cursor: pointer;
-    font-size: 0.83vw;
+    font-size: 0.85vw;
+    box-shadow: 0 0.2vw 0.5vw rgba(255, 105, 180, 0.4);
 }
 
 .logo {
-    font-size: 1.45vw;
+    font-size: 1.4vw;
     font-weight: 900;
-    font-style: italic;
-    color: #f1c40f;
-    letter-spacing: 0.052vw;
+    color: #ff1493;
+    letter-spacing: 0.05vw;
+    font-family: 'Comic Neue', cursive;
 }
 
 .logo span {
-    color: #e74c3c;
+    color: #ffd700;
 }
 
 .sidebar-menu {
     flex: 1;
     overflow-y: auto;
-    padding: 0.52vw 0;
+    padding: 0.5vw 0;
 }
 
 .menu-item {
     display: flex;
     align-items: center;
-    padding: 0.625vw 1.04vw;
+    padding: 0.8vw 1.2vw;
     color: var(--text-sub);
     text-decoration: none;
-    font-size: 0.73vw;
-    font-weight: 500;
+    font-size: 0.78vw;
+    font-weight: 700;
     transition: all 0.2s ease;
     position: relative;
-    gap: 0.625vw;
+    gap: 0.8vw;
+    border-radius: 1vw;
+    margin: 0.2vw 0.5vw;
 }
 
 .menu-item i {
-    width: 1.04vw;
+    width: 1.2vw;
     text-align: center;
-    color: #f1c40f;
-    font-size: 0.83vw;
+    color: #ff69b4;
+    font-size: 0.95vw;
 }
 
 .menu-item:hover {
-    color: var(--text-main);
-    background: rgba(241, 196, 15, 0.08);
+    color: #ff1493;
+    background: rgba(255, 182, 193, 0.4);
+    transform: translateX(0.3vw);
 }
 
 .menu-item.active {
-    background: linear-gradient(90deg, rgba(241, 196, 15, 0.2) 0%, rgba(241, 196, 15, 0.03) 100%);
-    color: #f1c40f !important;
-    font-weight: 700;
-    border-left: 0.2vw solid #f1c40f;
+    background: linear-gradient(135deg, #ffb6c1 0%, #ff69b4 100%);
+    color: #fff !important;
+    font-weight: 900;
+    box-shadow: 0 0.3vw 0.8vw rgba(255, 105, 180, 0.5);
+}
+
+.menu-item.active i {
+    color: #fff !important;
 }
 
 .vip-item {
-    background: rgba(241, 196, 15, 0.08);
+    background: rgba(255, 235, 59, 0.3);
 }
 
 .badge-vip {
-    background: linear-gradient(135deg, #f1c40f, #e67e22);
-    color: #000;
-    font-size: 0.52vw;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: #fff;
+    font-size: 0.55vw;
     font-weight: bold;
-    padding: 0.1vw 0.31vw;
-    border-radius: 0.2vw;
+    padding: 0.15vw 0.4vw;
+    border-radius: 1vw;
     margin-left: auto;
+    box-shadow: 0 0.2vw 0.4vw rgba(255, 20, 147, 0.3);
 }
 
 .sidebar-footer {
-    padding: 0.78vw 1.04vw;
-    border-top: 0.052vw solid var(--border-color);
+    padding: 1vw;
+    border-top: 0.15vw dashed var(--border-color);
     display: flex;
     flex-direction: column;
-    gap: 0.52vw;
-    background: var(--bg-footer);
+    gap: 0.6vw;
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .lang-selector {
-    background: var(--bg-lang);
-    color: var(--text-main);
-    padding: 0.41vw 0.625vw;
-    border-radius: 0.31vw;
-    font-size: 0.68vw;
+    background: #fff;
+    color: #ff69b4;
+    padding: 0.5vw 0.8vw;
+    border-radius: 1vw;
+    font-size: 0.72vw;
     display: flex;
     align-items: center;
-    gap: 0.41vw;
+    gap: 0.5vw;
     cursor: pointer;
+    border: 0.1vw solid #ffb6c1;
+    font-weight: bold;
 }
 
 .lang-selector i:last-child {
     margin-left: auto;
-    color: #777;
+    color: #ff69b4;
 }
 
 .theme-toggle {
     display: flex;
-    background: var(--bg-lang);
-    border-radius: 0.31vw;
-    padding: 0.15vw;
+    background: #fff;
+    border-radius: 1vw;
+    padding: 0.2vw;
+    border: 0.1vw solid #ffb6c1;
 }
 
 .theme-btn {
@@ -203,27 +198,29 @@ body {
     background: transparent;
     border: none;
     color: var(--text-sub);
-    padding: 0.31vw;
-    border-radius: 0.2vw;
-    font-size: 0.625vw;
+    padding: 0.4vw;
+    border-radius: 0.8vw;
+    font-size: 0.65vw;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.31vw;
+    gap: 0.3vw;
+    font-weight: bold;
 }
 
 .theme-btn.active {
-    background: var(--border-color);
-    color: var(--text-main);
+    background: linear-gradient(135deg, #ffd700, #ffeb3b);
+    color: #5c4033;
+    box-shadow: 0 0.2vw 0.5vw rgba(255, 215, 0, 0.4);
 }
 
 .sidebar.collapsed {
-    width: 3.95vw;
+    width: 4.2vw;
 }
 
 .sidebar.collapsed ~ .main-content {
-    margin-left: 3.95vw;
+    margin-left: 4.2vw;
 }
 
 .sidebar.collapsed .logo,
@@ -236,31 +233,31 @@ body {
 
 .sidebar.collapsed .sidebar-brand {
     justify-content: center;
-    padding: 0.78vw 0.26vw;
+    padding: 1vw 0.2vw;
 }
 
 .sidebar.collapsed .menu-item {
     justify-content: center;
-    padding: 0.73vw 0;
+    padding: 0.8vw 0;
     gap: 0;
 }
 
 .sidebar.collapsed .menu-item i {
-    font-size: 0.98vw;
+    font-size: 1.1vw;
     width: auto;
 }
 
 .sidebar.collapsed .badge-vip {
     position: absolute;
-    top: 0.31vw;
-    right: 0.31vw;
-    font-size: 0.42vw;
-    padding: 0.05vw 0.15vw;
+    top: 0.2vw;
+    right: 0.2vw;
+    font-size: 0.4vw;
+    padding: 0.05vw 0.1vw;
 }
 
 .sidebar.collapsed .lang-selector {
     justify-content: center;
-    padding: 0.52vw 0;
+    padding: 0.5vw 0;
 }
 
 .sidebar.collapsed .theme-toggle {
@@ -270,34 +267,34 @@ body {
 
 /* --- MAIN CONTENT PHẦN PHẢI --- */
 .main-content {
-    margin-left: 13.54vw;
+    margin-left: 14.5vw;
     flex: 1;
     display: flex;
     flex-direction: column;
     background-color: var(--bg-main);
-    transition: margin-left 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease;
+    transition: margin-left 0.3s ease, background-color 0.3s ease;
 }
 
 .top-navbar {
-    height: 3.64vw;
+    height: 4vw;
     background-color: var(--bg-navbar);
-    border-bottom: 0.052vw solid var(--border-color);
+    border-bottom: 0.15vw dashed var(--border-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1.56vw;
+    padding: 0 1.5vw;
     position: sticky;
     top: 0;
     z-index: 90;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 0.2vw 1vw rgba(255, 182, 193, 0.2);
 }
 
 .nav-links {
     display: flex;
-    gap: 0.41vw;
+    gap: 0.5vw;
     align-items: center;
     overflow-x: auto;
-    padding: 0.26vw 0;
+    padding: 0.3vw 0;
 }
 
 .nav-links::-webkit-scrollbar {
@@ -307,26 +304,31 @@ body {
 .nav-links .nav-item {
     color: var(--text-sub);
     text-decoration: none;
-    font-size: 0.73vw;
-    font-weight: 600;
+    font-size: 0.78vw;
+    font-weight: 700;
     white-space: nowrap;
     display: flex;
     align-items: center;
-    gap: 0.41vw;
-    padding: 0.41vw 0.83vw;
-    border-radius: 0.41vw;
-    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+    gap: 0.4vw;
+    padding: 0.5vw 0.9vw;
+    border-radius: 1vw;
+    transition: all 0.25s ease;
+    background: rgba(255, 255, 255, 0.6);
+    border: 0.1vw solid rgba(255, 182, 193, 0.5);
 }
 
 .nav-links .nav-item:hover {
-    color: #f1c40f;
+    color: #ff1493;
+    background: #fff;
+    transform: translateY(-0.1vw);
 }
 
 .nav-links .nav-item.active {
-    background: linear-gradient(135deg, #b8860b 0%, #996515 100%);
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
     color: #ffffff !important;
-    font-weight: 700;
-    box-shadow: 0 0.2vw 0.625vw rgba(184, 134, 11, 0.35);
+    font-weight: 900;
+    box-shadow: 0 0.3vw 0.8vw rgba(255, 105, 180, 0.5);
+    border-color: #ff1493;
 }
 
 .nav-links .nav-item.active i {
@@ -335,178 +337,186 @@ body {
 
 .auth-buttons {
     display: flex;
-    gap: 0.52vw;
+    gap: 0.6vw;
     align-items: center;
 }
 
 .btn-login {
-    background: #d4ac0d;
-    color: #000;
-    border: none;
-    padding: 0.41vw 0.93vw;
-    border-radius: 0.31vw;
-    font-weight: bold;
+    background: linear-gradient(135deg, #ffd700, #ffeb3b);
+    color: #5c4033;
+    border: 0.1vw solid #ffa500;
+    padding: 0.5vw 1vw;
+    border-radius: 1vw;
+    font-weight: 900;
     cursor: pointer;
-    font-size: 0.73vw;
-    transition: background 0.2s;
+    font-size: 0.78vw;
+    box-shadow: 0 0.2vw 0.5vw rgba(255, 215, 0, 0.4);
+    transition: transform 0.2s;
 }
 
 .btn-login:hover {
-    background: #f1c40f;
+    transform: scale(1.05);
 }
 
 .btn-register {
-    background: #8e44ad;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
     color: #fff;
-    border: none;
-    padding: 0.41vw 0.93vw;
-    border-radius: 0.31vw;
-    font-weight: bold;
+    border: 0.1vw solid #c71585;
+    padding: 0.5vw 1vw;
+    border-radius: 1vw;
+    font-weight: 900;
     cursor: pointer;
-    font-size: 0.73vw;
-    transition: background 0.2s;
+    font-size: 0.78vw;
+    box-shadow: 0 0.2vw 0.5vw rgba(255, 105, 180, 0.4);
+    transition: transform 0.2s;
 }
 
 .btn-register:hover {
-    background: #9b59b6;
+    transform: scale(1.05);
 }
 
 .user-logged-badge {
     display: flex;
     align-items: center;
-    gap: 0.625vw;
-    background: rgba(241, 196, 15, 0.1);
-    border: 0.052vw solid #f1c40f;
-    padding: 0.26vw 0.625vw;
-    border-radius: 0.31vw;
+    gap: 0.6vw;
+    background: rgba(255, 182, 193, 0.4);
+    border: 0.1vw solid #ff69b4;
+    padding: 0.3vw 0.7vw;
+    border-radius: 1vw;
 }
 
 .user-logged-badge span {
-    font-size: 0.73vw;
-    color: #f1c40f;
+    font-size: 0.78vw;
+    color: #ff1493;
     font-weight: bold;
 }
 
 .btn-logout {
-    background: #e74c3c;
+    background: #ff6b6b;
     color: #fff;
     border: none;
-    padding: 0.26vw 0.52vw;
-    border-radius: 0.2vw;
-    font-size: 0.625vw;
+    padding: 0.3vw 0.6vw;
+    border-radius: 0.8vw;
+    font-size: 0.68vw;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .content-body {
-    padding: 1.3vw;
+    padding: 1.5vw;
     display: flex;
     flex-direction: column;
-    gap: 1.3vw;
+    gap: 1.5vw;
     background-color: var(--bg-main);
-    transition: background-color 0.3s ease;
 }
 
 .hero-banner {
     width: 100%;
-    height: 19.79vw;
-    background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1511193311914-0346f16efe90?auto=format&fit=crop&w=1200&q=80') center/cover;
-    border-radius: 0.625vw;
+    height: 20vw;
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.6), rgba(255, 235, 59, 0.4)), url('https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80') center/cover;
+    border-radius: 1.5vw;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
-    padding: 0 2.6vw;
-    border: 0.052vw solid var(--border-color);
+    padding: 0 3vw;
+    border: 0.2vw solid #ff69b4;
+    box-shadow: 0 0.5vw 1.5vw rgba(255, 105, 180, 0.3);
 }
 
 .hero-text-content {
-    max-width: 23.43vw;
+    max-width: 25vw;
     display: flex;
     flex-direction: column;
-    gap: 0.625vw;
+    gap: 0.8vw;
     z-index: 2;
 }
 
 .hero-text-content h2 {
-    font-size: 2.34vw;
+    font-size: 2.5vw;
     font-weight: 900;
-    color: #fff;
-    text-shadow: 0 0.1vw 0.52vw rgba(0,0,0,0.8);
+    color: #ff1493;
+    text-shadow: 0 0.1vw 0.3vw rgba(255, 255, 255, 0.8);
+    font-family: 'Comic Neue', cursive;
 }
 
 .hero-text-content p {
-    font-size: 0.93vw;
-    color: #ddd;
+    font-size: 1.1vw;
+    color: #5c4033;
+    font-weight: bold;
 }
 
 .btn-hero-register {
-    background: linear-gradient(135deg, #8e44ad, #6c3483);
-    color: #fff;
-    border: none;
-    padding: 0.625vw 1.3vw;
-    border-radius: 0.41vw;
-    font-size: 0.83vw;
-    font-weight: bold;
+    background: linear-gradient(135deg, #ffd700, #ffeb3b);
+    color: #5c4033;
+    border: 0.15vw solid #ffa500;
+    padding: 0.8vw 1.5vw;
+    border-radius: 1.2vw;
+    font-size: 0.9vw;
+    font-weight: 900;
     cursor: pointer;
     width: fit-content;
-    box-shadow: 0 0.2vw 0.78vw rgba(142, 68, 173, 0.4);
+    box-shadow: 0 0.3vw 0.8vw rgba(255, 215, 0, 0.5);
     transition: transform 0.2s;
 }
 
 .btn-hero-register:hover {
-    transform: translateY(-0.1vw);
+    transform: translateY(-0.2vw) scale(1.05);
 }
 
 .promo-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.04vw;
+    gap: 1.2vw;
 }
 
 .promo-card {
-    height: 10.41vw;
-    border-radius: 0.625vw;
-    padding: 1.04vw;
+    height: 11vw;
+    border-radius: 1.2vw;
+    padding: 1.2vw;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    border: 0.052vw solid var(--border-color);
+    border: 0.15vw solid #ff69b4;
     background: var(--card-bg-1);
+    box-shadow: 0 0.3vw 1vw rgba(255, 105, 180, 0.25);
 }
 
 .promo-card.card-2 {
     background: var(--card-bg-2);
+    border-color: #ffd700;
 }
 
 .promo-info h3 {
-    font-size: 1.45vw;
+    font-size: 1.5vw;
     font-weight: 900;
-    color: #f39c12;
+    color: #ff1493;
+    font-family: 'Comic Neue', cursive;
 }
 
 .promo-info p {
-    font-size: 0.98vw;
+    font-size: 1.05vw;
     font-weight: bold;
-    color: var(--text-main);
+    color: #5c4033;
 }
 
 .highlight {
-    color: #f1c40f;
+    color: #ff4757;
 }
 
 .carousel-section {
     display: flex;
     flex-direction: column;
-    gap: 0.78vw;
-    margin-top: 0.52vw;
+    gap: 0.8vw;
+    margin-top: 0.5vw;
 }
 
 .carousel-container {
     width: 100%;
     overflow: hidden;
     position: relative;
-    padding: 0.31vw 0;
+    padding: 0.3vw 0;
     cursor: grab;
 }
 
@@ -524,252 +534,95 @@ body {
 .carousel-page {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.04vw;
+    gap: 1.2vw;
     min-width: 100%;
     flex-shrink: 0;
 }
 
 .game-card {
-    background: var(--bg-sidebar);
-    border-radius: 0.625vw;
+    background: #fff;
+    border-radius: 1.2vw;
     overflow: hidden;
-    border: 0.052vw solid var(--border-color);
+    border: 0.15vw solid #ffb6c1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 0.73vw;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    padding-bottom: 0.8vw;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.3vw 1vw rgba(255, 182, 193, 0.3);
 }
 
 .game-card:hover {
-    border-color: #f1c40f;
-    box-shadow: 0 0.2vw 0.78vw rgba(241, 196, 15, 0.25);
+    border-color: #ff69b4;
+    transform: translateY(-0.3vw);
+    box-shadow: 0 0.5vw 1.5vw rgba(255, 105, 180, 0.4);
 }
 
 .game-thumb {
     width: 100%;
-    height: 7.81vw;
+    height: 8.5vw;
     background-size: cover;
     background-position: center;
-    border-top-left-radius: 0.625vw;
-    border-top-right-radius: 0.625vw;
+    border-top-left-radius: 1.2vw;
+    border-top-right-radius: 1.2vw;
     pointer-events: none;
 }
 
 .game-title {
-    margin-top: 0.625vw;
-    font-size: 0.78vw;
-    font-weight: 700;
-    color: var(--text-main);
+    margin-top: 0.8vw;
+    font-size: 0.85vw;
+    font-weight: 900;
+    color: #ff1493;
     text-align: center;
 }
 
 .carousel-dots {
     display: flex;
     justify-content: center;
-    gap: 0.41vw;
+    gap: 0.5vw;
     align-items: center;
 }
 
 .dot {
-    height: 0.31vw;
-    width: 0.31vw;
-    border-radius: 0.15vw;
-    background: #555;
+    height: 0.4vw;
+    width: 0.4vw;
+    border-radius: 50%;
+    background: #ffb6c1;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .dot.active {
-    width: 1.25vw;
-    background: #f1c40f;
+    width: 1.5vw;
+    border-radius: 0.5vw;
+    background: #ff69b4;
 }
 
 .live-chat-float {
     position: fixed;
-    bottom: 1.3vw;
-    right: 1.3vw;
-    width: 2.86vw;
-    height: 2.86vw;
-    background: #f1c40f;
-    color: #000;
+    bottom: 1.5vw;
+    right: 1.5vw;
+    width: 3.2vw;
+    height: 3.2vw;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: #fff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25vw;
+    font-size: 1.4vw;
     cursor: pointer;
-    box-shadow: 0 0.2vw 1.04vw rgba(241, 196, 15, 0.4);
+    box-shadow: 0 0.3vw 1.2vw rgba(255, 105, 180, 0.6);
     z-index: 200;
     transition: transform 0.2s;
+    border: 0.15vw solid #fff;
 }
 
 .live-chat-float:hover {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(10deg);
 }
 
-.jp88-footer {
-    background-color: var(--bg-footer);
-    color: var(--footer-text);
-    padding: 2.6vw 3.125vw 2.08vw 3.125vw;
-    font-size: 0.73vw;
-    position: relative;
-    border-top: 0.052vw solid var(--footer-border);
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-.footer-top-links {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.56vw;
-    margin-bottom: 2.08vw;
-}
-
-.footer-col h4 {
-    color: var(--footer-heading);
-    font-size: 0.83vw;
-    font-weight: 600;
-    margin-bottom: 1.04vw;
-}
-
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.625vw;
-}
-
-.footer-col ul li a {
-    color: var(--footer-subtext);
-    text-decoration: none;
-    font-size: 0.73vw;
-    transition: color 0.2s ease;
-}
-
-.footer-col ul li a:hover {
-    color: #f1c40f;
-}
-
-.social-icons {
-    margin-bottom: 1.04vw;
-}
-
-.telegram-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.97vw;
-    height: 1.97vw;
-    background-color: #2CA5E0;
-    color: #fff;
-    border-radius: 50%;
-    font-size: 0.98vw;
-    text-decoration: none;
-    transition: transform 0.2s ease;
-}
-
-.telegram-btn:hover {
-    transform: scale(1.1);
-}
-
-.footer-lang-select {
-    display: flex;
-    align-items: center;
-    gap: 0.41vw;
-    background-color: var(--footer-lang-bg);
-    border: 0.052vw solid var(--footer-lang-border);
-    padding: 0.41vw 0.73vw;
-    border-radius: 0.31vw;
-    color: var(--footer-text);
-    font-size: 0.68vw;
-    cursor: pointer;
-    width: fit-content;
-    transition: border-color 0.2s ease;
-}
-
-.footer-lang-select:hover {
-    border-color: #f1c40f;
-}
-
-.footer-lang-select .arrow-icon {
-    font-size: 0.58vw;
-    color: #777;
-    margin-left: 0.52vw;
-}
-
-.footer-divider {
-    height: 0.052vw;
-    background-color: var(--footer-border);
-    margin-bottom: 1.56vw;
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.footer-bottom-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1.04vw;
-}
-
-.copyright-text {
-    color: var(--footer-subtext);
-    font-size: 0.68vw;
-}
-
-.age-warning-box {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625vw;
-}
-
-.badge-18 {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.08vw;
-    height: 2.08vw;
-    border: 0.1vw solid var(--footer-subtext);
-    border-radius: 50%;
-    color: var(--footer-heading);
-    font-weight: bold;
-    font-size: 0.78vw;
-}
-
-.warning-text {
-    color: var(--footer-subtext);
-    font-size: 0.68vw;
-}
-
-.back-to-top-btn {
-    background-color: var(--footer-top-btn-bg);
-    border: 0.052vw solid var(--footer-lang-border);
-    color: var(--footer-text);
-    padding: 0.52vw 0.73vw;
-    border-radius: 0.41vw;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.2vw;
-    font-size: 0.58vw;
-    transition: all 0.2s ease;
-}
-
-.back-to-top-btn i {
-    font-size: 0.68vw;
-}
-
-.back-to-top-btn:hover {
-    background-color: #f1c40f;
-    color: #000;
-    border-color: #f1c40f;
-}
+/* --- ĐÃ XÓA FOOTER THEO YÊU CẦU --- */
 
 .auth-modal-overlay {
     position: fixed;
@@ -777,7 +630,8 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(255, 182, 193, 0.8);
+    backdrop-filter: blur(5px);
     z-index: 1000;
     display: flex;
     justify-content: center;
@@ -793,90 +647,101 @@ body {
 }
 
 .auth-modal-box {
-    width: 47.91vw;
-    height: 28.12vw;
-    background: #202026;
-    border-radius: 0.625vw;
+    width: 48vw;
+    height: 29vw;
+    background: #fff;
+    border-radius: 1.5vw;
     display: flex;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 0.78vw 2.08vw rgba(0,0,0,0.9);
+    box-shadow: 0 0.8vw 2.5vw rgba(255, 105, 180, 0.4);
+    border: 0.2vw solid #ff69b4;
 }
 
 .auth-banner-col {
     width: 48%;
-    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%), 
-                url('https://images.unsplash.com/photo-1511193311914-0346f16efe90?auto=format&fit=crop&w=800&q=80') center/cover;
-    padding: 2.08vw;
+    background: linear-gradient(180deg, rgba(255,105,180,0.2) 0%, rgba(255,105,180,0.8) 100%), 
+                url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80') center/cover;
+    padding: 2.2vw;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 
 .auth-banner-text h2 {
-    font-size: 1.56vw;
-    font-weight: 800;
+    font-size: 1.6vw;
+    font-weight: 900;
     color: #fff;
     line-height: 1.3;
+    font-family: 'Comic Neue', cursive;
+    text-shadow: 0 0.1vw 0.3vw rgba(0,0,0,0.5);
 }
 
 .brand-gold {
-    color: #e5c158;
+    color: #ffd700;
 }
 
 .auth-form-col {
     width: 52%;
-    background: #22222a;
-    padding: 2.08vw;
+    background: #fff8dc;
+    padding: 2.2vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
-    color: #fff;
+    color: #5c4033;
 }
 
 .modal-close-x {
     position: absolute;
-    top: 1.04vw;
-    right: 1.04vw;
-    background: transparent;
+    top: 1.1vw;
+    right: 1.1vw;
+    background: #ff69b4;
     border: none;
-    color: #888;
-    font-size: 1.45vw;
+    color: #fff;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    font-size: 1.2vw;
     cursor: pointer;
-    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
 }
 
 .modal-close-x:hover {
-    color: #fff;
+    transform: scale(1.1);
 }
 
 .modal-main-title {
-    font-size: 1.17vw;
-    font-weight: 700;
-    margin-bottom: 1.04vw;
-    color: #fff;
+    font-size: 1.3vw;
+    font-weight: 900;
+    margin-bottom: 1.2vw;
+    color: #ff1493;
+    font-family: 'Comic Neue', cursive;
 }
 
 .form-group {
-    margin-bottom: 0.83vw;
+    margin-bottom: 0.9vw;
     position: relative;
 }
 
 .auth-input {
     width: 100%;
-    background: #17171c;
-    border: 0.052vw solid #333;
-    padding: 0.73vw 0.83vw;
-    border-radius: 0.31vw;
-    color: #fff;
-    font-size: 0.73vw;
+    background: #fff;
+    border: 0.15vw solid #ffb6c1;
+    padding: 0.8vw 0.9vw;
+    border-radius: 1vw;
+    color: #5c4033;
+    font-size: 0.78vw;
     outline: none;
     transition: border-color 0.2s;
 }
 
 .auth-input:focus {
-    border-color: #e5c158;
+    border-color: #ff69b4;
+    box-shadow: 0 0 0.5vw rgba(255, 105, 180, 0.3);
 }
 
 .password-wrap {
@@ -885,42 +750,43 @@ body {
 
 .toggle-pwd {
     position: absolute;
-    right: 0.83vw;
+    right: 0.9vw;
     top: 50%;
     transform: translateY(-50%);
-    color: #777;
+    color: #ff69b4;
     cursor: pointer;
-    font-size: 0.83vw;
+    font-size: 0.85vw;
     z-index: 10;
 }
 
 .form-extra-row {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 1.04vw;
+    margin-bottom: 1.1vw;
 }
 
 .forgot-pwd-link {
-    color: #888;
-    font-size: 0.68vw;
+    color: #ff69b4;
+    font-size: 0.72vw;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .forgot-pwd-link:hover {
-    color: #e5c158;
+    text-decoration: underline;
 }
 
 .form-terms-row {
-    margin-bottom: 1.04vw;
-    font-size: 0.68vw;
-    color: #b2b2c2;
+    margin-bottom: 1.1vw;
+    font-size: 0.72vw;
+    color: #8c6873;
     width: 100%;
 }
 
 .terms-label {
     display: flex;
     align-items: center;
-    gap: 0.52vw;
+    gap: 0.6vw;
     cursor: pointer;
     line-height: 1.4;
 }
@@ -928,11 +794,11 @@ body {
 .terms-label input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
-    width: 0.93vw;
-    height: 0.93vw;
-    background: #17171c;
-    border: 0.052vw solid #444;
-    border-radius: 0.2vw;
+    width: 1vw;
+    height: 1vw;
+    background: #fff;
+    border: 0.15vw solid #ff69b4;
+    border-radius: 0.3vw;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -942,51 +808,52 @@ body {
 }
 
 .terms-label input[type="checkbox"]:checked {
-    background-color: #e5c158;
-    border-color: #e5c158;
+    background-color: #ff69b4;
+    border-color: #ff69b4;
 }
 
 .terms-label input[type="checkbox"]:checked::after {
     content: '✔';
-    font-size: 0.625vw;
-    color: #000;
+    font-size: 0.65vw;
+    color: #fff;
     font-weight: bold;
 }
 
 .terms-label strong {
-    color: #fff;
-    font-weight: 600;
+    color: #ff1493;
+    font-weight: 900;
 }
 
 .btn-auth-submit {
     width: 100%;
-    background: linear-gradient(135deg, #b8860b, #996515);
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
     color: #fff;
     border: none;
-    padding: 0.73vw;
-    border-radius: 0.31vw;
-    font-size: 0.78vw;
-    font-weight: bold;
+    padding: 0.8vw;
+    border-radius: 1vw;
+    font-size: 0.85vw;
+    font-weight: 900;
     cursor: pointer;
-    box-shadow: 0 0.2vw 0.78vw rgba(184, 134, 11, 0.3);
-    transition: filter 0.2s;
-    margin-bottom: 1.04vw;
+    box-shadow: 0 0.3vw 0.8vw rgba(255, 105, 180, 0.4);
+    transition: transform 0.2s;
+    margin-bottom: 1.1vw;
 }
 
 .btn-auth-submit:hover {
-    filter: brightness(1.15);
+    transform: scale(1.02);
 }
 
 .auth-switch-text {
     text-align: center;
-    font-size: 0.68vw;
-    color: #888;
+    font-size: 0.72vw;
+    color: #8c6873;
+    font-weight: bold;
 }
 
 .auth-switch-text a {
-    color: #e5c158;
+    color: #ff1493;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 900;
 }
 
 .auth-switch-text a:hover {
@@ -994,7 +861,7 @@ body {
 }
 
 /* ==========================================
-   VÒNG QUAY 8 Ô
+   VÒNG QUAY 8 Ô (CINNAMOROLL)
    ========================================== */
 .wheel-solo-container {
     display: flex;
@@ -1005,26 +872,26 @@ body {
 }
 
 .wheel-main-box {
-    background: radial-gradient(circle at center, #1b2838 0%, #0e1621 100%);
-    border: 0.25vw solid #D35400;
-    border-radius: 1.5vw;
+    background: linear-gradient(135deg, #fff0f5 0%, #fff8dc 100%);
+    border: 0.25vw solid #ff69b4;
+    border-radius: 2vw;
     padding: 3vw 3.5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 58vw;
     min-width: 680px;
-    box-shadow: 0 0 3vw rgba(211, 84, 0, 0.5);
+    box-shadow: 0 0 3vw rgba(255, 105, 180, 0.4);
     position: relative;
 }
 
 .wheel-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8vw;
-    color: #00CEC9;
+    font-family: 'Comic Neue', cursive;
+    font-size: 2vw;
+    color: #ff1493;
     text-align: center;
-    margin-bottom: 3vw;
-    text-shadow: 0 0 0.5vw rgba(0, 206, 201, 0.4);
+    margin-bottom: 2.5vw;
+    text-shadow: 0 0 0.5vw rgba(255, 105, 180, 0.4);
 }
 
 .diamond-wheel-wrapper {
@@ -1041,28 +908,28 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 1.2vw;
-    width: 17.5vw;
-    height: 17.5vw;
-    min-width: 240px;
-    min-height: 240px;
+    width: 18.5vw;
+    height: 18.5vw;
+    min-width: 250px;
+    min-height: 250px;
     transform: rotate(45deg);
-    background: rgba(15, 15, 25, 0.95);
-    border: 0.25vw solid #F1C40F;
-    border-radius: 1.2vw;
+    background: #fff;
+    border: 0.3vw solid #ffd700;
+    border-radius: 1.5vw;
     padding: 1.2vw;
-    box-shadow: 0 0 2vw rgba(241, 196, 15, 0.45);
+    box-shadow: 0 0 2vw rgba(255, 215, 0, 0.5);
 }
 
 .wheel-cell {
-    background: linear-gradient(135deg, #1e272e, #111);
-    border: 0.15vw solid #34495E;
-    border-radius: 0.6vw;
+    background: linear-gradient(135deg, #fff5f5, #ffe4e1);
+    border: 0.15vw solid #ffb6c1;
+    border-radius: 1vw;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     transition: all 0.15s ease;
-    box-shadow: inset 0 0 0.5vw rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 0.5vw rgba(255, 105, 180, 0.2);
 }
 
 .cell-img {
@@ -1070,38 +937,38 @@ body {
     height: 120%;
     object-fit: contain;
     transform: rotate(-45deg);
-    filter: drop-shadow(0 0 0.4vw rgba(255,255,255,0.3));
+    filter: drop-shadow(0 0 0.4vw rgba(255, 105, 180, 0.4));
 }
 
 .cell-count {
     position: absolute;
     bottom: 0.2vw;
     right: 0.3vw;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.75vw;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.8vw;
     font-weight: 900;
-    color: #F1C40F;
-    text-shadow: 0 0 0.3vw #000, 0 0 0.3vw #000;
+    color: #ff1493;
+    text-shadow: 0 0 0.3vw #fff, 0 0 0.3vw #fff;
     transform: rotate(-45deg);
     z-index: 2;
 }
 
 .wheel-cell.active-slot {
-    background: linear-gradient(135deg, #F1C40F, #E67E22) !important;
-    border-color: #FFF !important;
-    box-shadow: 0 0 1.5vw #F1C40F !important;
+    background: linear-gradient(135deg, #ffd700, #ffeb3b) !important;
+    border-color: #ff1493 !important;
+    box-shadow: 0 0 1.5vw #ff69b4 !important;
     transform: scale(1.08);
 }
 
 .wheel-cell.hit-gray-cell {
-    background: linear-gradient(135deg, #2c3e50, #1a252f) !important;
-    opacity: 0.45;
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0) !important;
+    opacity: 0.5;
     filter: grayscale(100%);
-    border-color: #555 !important;
+    border-color: #ccc !important;
 }
 
 .wheel-cell.hit-gray-cell .cell-img {
-    filter: grayscale(100%) brightness(0.5);
+    filter: grayscale(100%) brightness(0.6);
 }
 
 .wheel-cell.hit-gray-cell .cell-count {
@@ -1109,14 +976,14 @@ body {
 }
 
 .wheel-center-btn {
-    background: radial-gradient(circle, #D35400, #962D22);
-    border: 0.2vw solid #F1C40F;
-    border-radius: 0.8vw;
+    background: radial-gradient(circle, #ff69b4, #ff1493);
+    border: 0.25vw solid #ffd700;
+    border-radius: 1vw;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 0 1.2vw rgba(211, 84, 0, 0.8);
+    box-shadow: 0 0 1.2vw rgba(255, 105, 180, 0.8);
     transition: transform 0.2s;
 }
 
@@ -1125,37 +992,37 @@ body {
 }
 
 .center-text {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.85vw;
+    font-family: 'Comic Neue', cursive;
+    font-size: 0.9vw;
     font-weight: 900;
-    color: #FFF;
+    color: #fff;
     text-align: center;
-    text-shadow: 0 0 0.5vw #000;
+    text-shadow: 0 0 0.5vw rgba(0,0,0,0.3);
     transform: rotate(-45deg);
     line-height: 1.2;
 }
 
 .token-icon-mini {
     display: inline-block;
-    width: 0.85vw;
-    height: 0.85vw;
-    background: radial-gradient(circle, #f1c40f, #d35400);
+    width: 0.9vw;
+    height: 0.9vw;
+    background: radial-gradient(circle, #ffd700, #ff8c00);
     border: 0.1vw solid #fff;
     border-radius: 50%;
     vertical-align: middle;
-    box-shadow: 0 0 0.3vw #f1c40f;
+    box-shadow: 0 0 0.3vw #ffd700;
 }
 
 .token-icon-btn {
     display: inline-block;
-    width: 1.1vw;
-    height: 1.1vw;
-    background: radial-gradient(circle, #f1c40f, #d35400);
+    width: 1.15vw;
+    height: 1.15vw;
+    background: radial-gradient(circle, #ffd700, #ff8c00);
     border: 0.12vw solid #fff;
     border-radius: 50%;
     vertical-align: middle;
     margin-left: 0.2vw;
-    box-shadow: 0 0 0.3vw #f1c40f;
+    box-shadow: 0 0 0.3vw #ffd700;
 }
 
 .wheel-action-area {
@@ -1166,22 +1033,22 @@ body {
 }
 
 .btn-casino {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.1vw;
-    font-weight: 700;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.2vw;
+    font-weight: 900;
     padding: 1vw 3vw;
     border: none;
-    border-radius: 0.6vw;
+    border-radius: 1vw;
     cursor: pointer;
-    box-shadow: 0 0.3vw 0 rgba(0,0,0,0.5);
-    transition: all 0.1s ease;
+    box-shadow: 0 0.4vw 1vw rgba(255, 105, 180, 0.4);
+    transition: all 0.2s ease;
     text-transform: uppercase;
 }
 
 .btn-spin-1 { 
-    background: linear-gradient(135deg, #C0392B, #962D22); 
+    background: linear-gradient(135deg, #ff69b4, #ff1493); 
     color: #FFF; 
-    border: 0.1vw solid #E74C3C; 
+    border: 0.15vw solid #ffd700; 
     width: 100%;
     display: flex;
     align-items: center;
@@ -1189,12 +1056,13 @@ body {
     gap: 0.4vw;
 }
 .btn-spin-1:hover { 
-    background: linear-gradient(135deg, #E74C3C, #C0392B); 
-    box-shadow: 0 0 1vw #E74C3C; 
+    background: linear-gradient(135deg, #ff1493, #c71585); 
+    box-shadow: 0 0 1.5vw #ff69b4; 
+    transform: scale(1.02);
 }
 
 /* ==========================================
-   KHU MỞ RƯƠNG VẬT PHẨM (25 TOKEN)
+   KHU MỞ RƯƠNG VẬT PHẨM (KUROMI)
    ========================================== */
 .chest-game-container {
     display: flex;
@@ -1205,37 +1073,38 @@ body {
 }
 
 .chest-main-box {
-    background: radial-gradient(circle at center, #1b2838 0%, #0e1621 100%);
-    border: 0.25vw solid #8e44ad;
-    border-radius: 1.5vw;
+    background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+    border: 0.25vw solid #ba68c8;
+    border-radius: 2vw;
     padding: 3vw 3.5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 65vw;
     min-width: 700px;
-    box-shadow: 0 0 3vw rgba(142, 68, 173, 0.5);
+    box-shadow: 0 0 3vw rgba(186, 104, 200, 0.4);
     position: relative;
     overflow: hidden;
 }
 
 .chest-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8vw;
-    color: #9b59b6;
+    font-family: 'Comic Neue', cursive;
+    font-size: 2vw;
+    color: #8e24aa;
     text-align: center;
     margin-bottom: 0.5vw;
-    text-shadow: 0 0 0.5vw rgba(155, 89, 182, 0.4);
+    text-shadow: 0 0 0.5vw rgba(142, 36, 170, 0.3);
 }
 
 .chest-subtitle {
-    font-size: 0.95vw;
-    color: #b2b2c2;
+    font-size: 1vw;
+    color: #6a1b9a;
     margin-bottom: 2.5vw;
     text-align: center;
     display: flex;
     align-items: center;
     gap: 0.4vw;
+    font-weight: bold;
 }
 
 .chests-grid-wrapper {
@@ -1254,9 +1123,9 @@ body {
 }
 
 .chest-card {
-    background: linear-gradient(135deg, #1e272e, #111);
-    border: 0.15vw solid #8e44ad;
-    border-radius: 1vw;
+    background: #fff;
+    border: 0.15vw solid #ba68c8;
+    border-radius: 1.2vw;
     padding: 1.5vw 1vw;
     display: flex;
     flex-direction: column;
@@ -1264,15 +1133,15 @@ body {
     justify-content: center;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    box-shadow: 0 0 1vw rgba(142, 68, 173, 0.3);
+    box-shadow: 0 0.3vw 1vw rgba(186, 104, 200, 0.2);
     position: relative;
     z-index: 1;
 }
 
 .chest-card:hover {
     transform: translateY(-0.5vw) scale(1.03);
-    border-color: #f1c40f;
-    box-shadow: 0 0 1.8vw rgba(241, 196, 15, 0.5);
+    border-color: #ff1493;
+    box-shadow: 0 0 1.8vw rgba(255, 20, 147, 0.4);
 }
 
 .chest-box-img {
@@ -1280,15 +1149,15 @@ body {
     height: 5.5vw;
     background: url('RESOURCE/Rương mẫu.png') center/contain no-repeat;
     margin-bottom: 0.8vw;
-    filter: drop-shadow(0 0 0.6vw rgba(155, 89, 182, 0.8));
+    filter: drop-shadow(0 0 0.6vw rgba(186, 104, 200, 0.6));
     transition: transform 0.4s ease;
 }
 
 .chest-card span {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.8vw;
-    color: #f1c40f;
-    font-weight: bold;
+    font-family: 'Comic Neue', cursive;
+    font-size: 0.9vw;
+    color: #8e24aa;
+    font-weight: 900;
 }
 
 .chest-card.opening-center {
@@ -1297,9 +1166,9 @@ body {
     left: 50% !important;
     transform: translate(-50%, -50%) scale(2.2) !important;
     z-index: 999999 !important;
-    border-color: #f1c40f !important;
-    box-shadow: 0 0 4vw #f1c40f, inset 0 0 1.5vw rgba(241, 196, 15, 0.8) !important;
-    background: linear-gradient(135deg, #2c1638, #120818) !important;
+    border-color: #ff1493 !important;
+    box-shadow: 0 0 4vw #ff69b4, inset 0 0 1.5vw rgba(255, 105, 180, 0.5) !important;
+    background: #fff !important;
     pointer-events: none;
     transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -1317,7 +1186,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(255, 182, 193, 0.8);
     backdrop-filter: blur(8px);
     z-index: 999998;
     opacity: 0;
@@ -1331,7 +1200,7 @@ body {
 }
 
 /* ==========================================
-   SLOT MACHINE STYLING (FIXED RESPONSIVE VW)
+   SLOT MACHINE (KẸO NGỌT)
    ========================================== */
 .slot-game-container {
     display: flex;
@@ -1342,44 +1211,45 @@ body {
 }
 
 .slot-main-box {
-    background: radial-gradient(circle at center, #2c1638 0%, #0e0b16 100%);
-    border: 0.25vw solid #e74c3c;
-    border-radius: 1.5vw;
+    background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+    border: 0.25vw solid #ff69b4;
+    border-radius: 2vw;
     padding: 3vw 3.5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 45vw;
-    box-shadow: 0 0 3vw rgba(231, 76, 60, 0.6);
+    box-shadow: 0 0 3vw rgba(255, 105, 180, 0.4);
     position: relative;
 }
 
 .slot-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8vw;
-    color: #e74c3c;
+    font-family: 'Comic Neue', cursive;
+    font-size: 2vw;
+    color: #ff1493;
     text-align: center;
     margin-bottom: 0.5vw;
-    text-shadow: 0 0 0.5vw rgba(231, 76, 60, 0.6);
+    text-shadow: 0 0 0.5vw rgba(255, 105, 180, 0.4);
     white-space: nowrap;
 }
 
 .slot-subtitle {
-    font-size: 0.95vw;
-    color: #b2b2c2;
+    font-size: 1vw;
+    color: #8c6873;
     margin-bottom: 2vw;
     text-align: center;
     display: flex;
     align-items: center;
     gap: 0.4vw;
+    font-weight: bold;
 }
 
 .slot-machine-frame {
-    background: linear-gradient(135deg, #111, #1a1525);
-    border: 0.25vw solid #f1c40f;
-    border-radius: 1vw;
+    background: #fff;
+    border: 0.25vw solid #ffd700;
+    border-radius: 1.5vw;
     padding: 1.5vw;
-    box-shadow: inset 0 0 2vw rgba(0,0,0,0.8), 0 0 1.5vw rgba(241, 196, 15, 0.4);
+    box-shadow: inset 0 0 1.5vw rgba(255, 215, 0, 0.3), 0 0 1.5vw rgba(255, 182, 193, 0.5);
     margin-bottom: 2vw;
     width: 100%;
     max-width: 32vw;
@@ -1389,9 +1259,9 @@ body {
     display: flex;
     justify-content: center;
     gap: 1.2vw;
-    background: #08050c;
-    border: 0.15vw solid #333;
-    border-radius: 0.8vw;
+    background: #fff8dc;
+    border: 0.15vw solid #ffb6c1;
+    border-radius: 1vw;
     padding: 1vw;
     overflow: hidden;
     height: 11vw;
@@ -1401,15 +1271,15 @@ body {
 .slot-reel {
     width: 8vw;
     height: 9vw;
-    background: linear-gradient(180deg, #161224, #1f1833);
-    border: 0.1vw solid #e74c3c;
-    border-radius: 0.5vw;
+    background: #fff;
+    border: 0.15vw solid #ff69b4;
+    border-radius: 0.8vw;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     position: relative;
-    box-shadow: inset 0 0 0.8vw rgba(0,0,0,0.6);
+    box-shadow: inset 0 0 0.8vw rgba(255, 105, 180, 0.2);
     flex-shrink: 0;
 }
 
@@ -1425,7 +1295,7 @@ body {
     width: 85%;
     height: 85%;
     object-fit: contain;
-    filter: drop-shadow(0 0 0.4vw rgba(255,255,255,0.4));
+    filter: drop-shadow(0 0 0.4vw rgba(255, 105, 180, 0.4));
 }
 
 .slot-action-area {
@@ -1436,28 +1306,28 @@ body {
 }
 
 .btn-spin-slot {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    color: #fff;
-    border: 0.15vw solid #f1c40f;
+    background: linear-gradient(135deg, #ffd700, #ffeb3b);
+    color: #5c4033;
+    border: 0.15vw solid #ffa500;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5vw;
     padding: 1vw 2vw;
-    border-radius: 0.8vw;
+    border-radius: 1vw;
     font-size: 1.1vw;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Comic Neue', cursive;
     font-weight: 900;
     cursor: pointer;
-    box-shadow: 0 0 1vw rgba(231, 76, 60, 0.6);
+    box-shadow: 0 0 1vw rgba(255, 215, 0, 0.6);
     transition: all 0.2s ease;
     white-space: nowrap;
 }
 
 .btn-spin-slot:hover {
     transform: scale(1.03);
-    box-shadow: 0 0 1.8vw #e74c3c;
+    box-shadow: 0 0 1.8vw #ffd700;
 }
 
 /* POPUP THẮNG CƯỞC */
@@ -1467,7 +1337,7 @@ body {
     left: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(255, 182, 193, 0.85);
     backdrop-filter: blur(6px);
     display: flex;
     justify-content: center;
@@ -1484,14 +1354,14 @@ body {
 }
 
 .win-card {
-    width: 20vw;
-    min-width: 260px;
-    background: linear-gradient(135deg, #1B2631, #11181F);
-    border-radius: 1.2vw;
+    width: 22vw;
+    min-width: 280px;
+    background: #fff;
+    border-radius: 1.5vw;
     padding: 2vw;
     text-align: center;
-    box-shadow: 0 0 2.5vw #F1C40F;
-    border: 0.25vw solid #F1C40F;
+    box-shadow: 0 0 2.5vw #ff69b4;
+    border: 0.25vw solid #ff1493;
     transform: scale(0.5);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -1501,15 +1371,15 @@ body {
 }
 
 .win-tier {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1vw;
-    padding: 0.3vw 0.8vw;
-    border-radius: 0.4vw;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.1vw;
+    padding: 0.3vw 1vw;
+    border-radius: 1vw;
     display: inline-block;
     margin-bottom: 0.8vw;
-    color: #111;
-    background: #F1C40F;
-    font-weight: bold;
+    color: #fff;
+    background: #ff69b4;
+    font-weight: 900;
 }
 
 .win-icon {
@@ -1520,27 +1390,28 @@ body {
 }
 
 .win-msg {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.1vw;
-    color: #2ECC71;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.2vw;
+    color: #2ecc71;
     margin-bottom: 0.4vw;
+    font-weight: bold;
 }
 
 .win-amount {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.3vw;
-    color: #F1C40F;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.4vw;
+    color: #ff1493;
     font-weight: 900;
 }
 
-/* CUSTOM POPUP ALERT THAY CHO ALERT MẶC ĐỊNH */
+/* CUSTOM POPUP ALERT */
 .custom-alert-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 182, 193, 0.8);
     backdrop-filter: blur(5px);
     display: flex;
     justify-content: center;
@@ -1557,14 +1428,14 @@ body {
 }
 
 .custom-alert-box {
-    width: 24vw;
-    min-width: 300px;
-    background: linear-gradient(135deg, #1b2838, #0e1621);
-    border: 0.2vw solid #f1c40f;
-    border-radius: 1vw;
+    width: 25vw;
+    min-width: 320px;
+    background: #fff;
+    border: 0.2vw solid #ff69b4;
+    border-radius: 1.5vw;
     padding: 2vw;
     text-align: center;
-    box-shadow: 0 0 2.5vw rgba(241, 196, 15, 0.5);
+    box-shadow: 0 0 2.5vw rgba(255, 105, 180, 0.5);
     transform: scale(0.7);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -1574,31 +1445,31 @@ body {
 }
 
 .custom-alert-icon {
-    font-size: 2.2vw;
-    color: #f1c40f;
+    font-size: 2.5vw;
+    color: #ff69b4;
     margin-bottom: 1vw;
 }
 
 .custom-alert-message {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.05vw;
-    color: #fff;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1vw;
+    color: #5c4033;
     font-weight: bold;
     margin-bottom: 1.5vw;
     line-height: 1.4;
 }
 
 .custom-alert-btn {
-    font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(135deg, #f1c40f, #d35400);
-    color: #000;
+    font-family: 'Comic Neue', cursive;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: #fff;
     border: none;
-    padding: 0.6vw 2vw;
-    border-radius: 0.5vw;
-    font-size: 0.9vw;
-    font-weight: bold;
+    padding: 0.7vw 2.2vw;
+    border-radius: 1vw;
+    font-size: 1vw;
+    font-weight: 900;
     cursor: pointer;
-    box-shadow: 0 0.2vw 0.8vw rgba(241, 196, 15, 0.4);
+    box-shadow: 0 0.2vw 0.8vw rgba(255, 105, 180, 0.4);
     transition: transform 0.2s;
 }
 
@@ -1613,7 +1484,7 @@ body {
     right: 1.5vw;
     width: 3.2vw;
     height: 3.2vw;
-    background: linear-gradient(135deg, #f1c40f, #d35400);
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -1621,19 +1492,20 @@ body {
     color: #fff;
     font-size: 1.4vw;
     cursor: pointer;
-    box-shadow: 0 0 1vw rgba(241, 196, 15, 0.6);
+    box-shadow: 0 0 1vw rgba(255, 215, 0, 0.6);
     z-index: 998;
     transition: transform 0.2s;
+    border: 0.15vw solid #fff;
 }
 
 .backpack-float:hover {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(-10deg);
 }
 
 .inventory-modal-overlay {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(255, 182, 193, 0.8);
     backdrop-filter: blur(5px);
     display: flex;
     justify-content: center;
@@ -1652,21 +1524,21 @@ body {
 .inventory-modal-box {
     width: 38vw;
     min-width: 450px;
-    background: linear-gradient(135deg, #1b2838, #0e1621);
-    border: 0.25vw solid #f1c40f;
-    border-radius: 1.2vw;
+    background: #fff;
+    border: 0.25vw solid #ff69b4;
+    border-radius: 1.5vw;
     padding: 2vw;
-    box-shadow: 0 0 2.5vw rgba(241, 196, 15, 0.5);
+    box-shadow: 0 0 2.5vw rgba(255, 105, 180, 0.4);
     position: relative;
 }
 
 .inventory-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.5vw;
-    color: #f1c40f;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.6vw;
+    color: #ff1493;
     text-align: center;
     margin-bottom: 1.5vw;
-    text-shadow: 0 0 0.5vw rgba(241, 196, 15, 0.4);
+    text-shadow: 0 0 0.5vw rgba(255, 105, 180, 0.3);
 }
 
 .inventory-grid {
@@ -1679,9 +1551,9 @@ body {
 }
 
 .inv-item-card {
-    background: linear-gradient(135deg, #1e272e, #111);
-    border: 0.15vw solid #34495E;
-    border-radius: 0.6vw;
+    background: #fff8dc;
+    border: 0.15vw solid #ffb6c1;
+    border-radius: 1vw;
     padding: 0.8vw;
     display: flex;
     flex-direction: column;
@@ -1689,6 +1561,7 @@ body {
     justify-content: center;
     position: relative;
     min-height: 5.5vw;
+    box-shadow: 0 0.2vw 0.5vw rgba(255, 182, 193, 0.3);
 }
 
 .inv-item-img {
@@ -1696,14 +1569,14 @@ body {
     height: 3vw;
     object-fit: contain;
     margin-bottom: 0.4vw;
-    filter: drop-shadow(0 0 0.3vw rgba(255,255,255,0.3));
+    filter: drop-shadow(0 0 0.3vw rgba(255, 105, 180, 0.3));
 }
 
 .inv-item-name {
-    font-size: 0.65vw;
-    color: #b2b2c2;
+    font-size: 0.7vw;
+    color: #5c4033;
     text-align: center;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-weight: bold;
 }
 
@@ -1711,18 +1584,18 @@ body {
     position: absolute;
     top: 0.3vw;
     right: 0.4vw;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: 0.75vw;
     font-weight: 900;
-    color: #f1c40f;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 0.1vw 0.35vw;
-    border-radius: 0.3vw;
-    border: 0.05vw solid #f1c40f;
+    color: #ff1493;
+    background: #fff;
+    padding: 0.1vw 0.4vw;
+    border-radius: 0.8vw;
+    border: 0.1vw solid #ff69b4;
 }
 
 /* ==========================================
-   XỔ SỐ (LOTTERY) STYLING - HÌNH QUẠT ĐỒNG ĐỀU
+   VÉ SỐ CÀO (LOTTERY)
    ========================================== */
 .lottery-game-container {
     display: flex;
@@ -1733,37 +1606,38 @@ body {
 }
 
 .lottery-main-box {
-    background: radial-gradient(circle at center, #16222a 0%, #3a6073 100%);
-    border: 0.25vw solid #f1c40f;
-    border-radius: 1.5vw;
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
+    border: 0.25vw solid #00acc1;
+    border-radius: 2vw;
     padding: 3vw 3.5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 68vw;
     min-width: 780px;
-    box-shadow: 0 0 3vw rgba(241, 196, 15, 0.5);
+    box-shadow: 0 0 3vw rgba(0, 172, 193, 0.4);
     position: relative;
     overflow: hidden;
 }
 
 .lottery-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8vw;
-    color: #f1c40f;
+    font-family: 'Comic Neue', cursive;
+    font-size: 2vw;
+    color: #00838f;
     text-align: center;
     margin-bottom: 0.5vw;
-    text-shadow: 0 0 0.5vw rgba(241, 196, 15, 0.6);
+    text-shadow: 0 0 0.5vw rgba(0, 131, 143, 0.3);
 }
 
 .lottery-subtitle {
-    font-size: 0.95vw;
-    color: #e2e8f0;
+    font-size: 1vw;
+    color: #006064;
     margin-bottom: 3.5vw;
     text-align: center;
     display: flex;
     align-items: center;
     gap: 0.4vw;
+    font-weight: bold;
 }
 
 .lottery-stage {
@@ -1784,7 +1658,6 @@ body {
     cursor: pointer;
     transform-origin: 50% 160%;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), z-index 0.3s, opacity 0.3s;
-    /* Căn khoảng cách đều đặn và tạo độ cong vòm đối xứng, chiều cao đồng bộ */
     transform: translateX(calc(var(--i) * 4.4vw)) translateY(calc((4 - abs(var(--i))) * -0.4vw)) rotate(calc(var(--i) * 8.5deg));
     z-index: calc(10 + var(--i));
 }
@@ -1810,8 +1683,8 @@ body {
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-    border-radius: 0.8vw;
-    box-shadow: 0 0.5vw 1.5vw rgba(0,0,0,0.6);
+    border-radius: 1vw;
+    box-shadow: 0 0.5vw 1.5vw rgba(0,0,0,0.2);
 }
 
 .lottery-ticket-wrapper.flipped .lottery-ticket {
@@ -1823,26 +1696,26 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 0.8vw;
+    border-radius: 1vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 0.15vw solid #f1c40f;
+    border: 0.15vw solid #ff69b4;
 }
 
 .ticket-back {
-    background: linear-gradient(135deg, #b8860b, #533f04);
+    background: linear-gradient(135deg, #ffb6c1, #ff69b4);
     color: #fff;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.9vw;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1vw;
     font-weight: 900;
-    text-shadow: 0 0 0.4vw rgba(0,0,0,0.8);
-    box-shadow: inset 0 0 1vw rgba(255,255,255,0.2);
+    text-shadow: 0 0 0.4vw rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 1vw rgba(255,255,255,0.4);
 }
 
 .ticket-front {
-    background: linear-gradient(135deg, #1e272e, #111);
+    background: #fff;
     transform: rotateY(180deg);
     position: relative;
     overflow: hidden;
@@ -1855,7 +1728,7 @@ body {
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    border-radius: 0.7vw;
+    border-radius: 0.8vw;
     z-index: 5;
 }
 
@@ -1874,13 +1747,13 @@ body {
     width: 4.5vw;
     height: 4.5vw;
     object-fit: contain;
-    filter: drop-shadow(0 0 0.5vw #f1c40f);
+    filter: drop-shadow(0 0 0.5vw #ff69b4);
 }
 
 .lottery-prize-text {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.75vw;
-    color: #f1c40f;
+    font-family: 'Comic Neue', cursive;
+    font-size: 0.8vw;
+    color: #ff1493;
     font-weight: bold;
     text-align: center;
 }
@@ -1893,136 +1766,26 @@ body {
 }
 
 .btn-reset-lottery {
-    background: linear-gradient(135deg, #27ae60, #1e8449);
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
     color: #fff;
-    border: 0.15vw solid #f1c40f;
+    border: 0.15vw solid #ffd700;
     padding: 0.8vw 2.5vw;
-    border-radius: 0.6vw;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1vw;
-    font-weight: bold;
+    border-radius: 1vw;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.1vw;
+    font-weight: 900;
     cursor: pointer;
-    box-shadow: 0 0 1vw rgba(39, 174, 96, 0.6);
+    box-shadow: 0 0 1vw rgba(255, 105, 180, 0.5);
     transition: all 0.2s;
 }
 
 .btn-reset-lottery:hover {
     transform: scale(1.05);
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    background: linear-gradient(135deg, #ff1493, #c71585);
 }
-
-/* POPUPS & INVENTORY STYLING (GIỮ NGUYÊN) */
-.win-popup {
-    position: fixed !important;
-    top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(6px);
-    display: flex; justify-content: center; align-items: center;
-    opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 9999999;
-}
-.win-popup.show { opacity: 1; pointer-events: auto; }
-.win-card {
-    width: 20vw; min-width: 260px;
-    background: linear-gradient(135deg, #1B2631, #11181F);
-    border-radius: 1.2vw; padding: 2vw; text-align: center;
-    box-shadow: 0 0 2.5vw #F1C40F; border: 0.25vw solid #F1C40F;
-    transform: scale(0.5); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.win-popup.show .win-card { transform: scale(1); }
-.win-tier {
-    font-family: 'Orbitron', sans-serif; font-size: 1vw; padding: 0.3vw 0.8vw;
-    border-radius: 0.4vw; display: inline-block; margin-bottom: 0.8vw; color: #111; background: #F1C40F; font-weight: bold;
-}
-.win-icon { margin: 0.8vw 0; display: flex; justify-content: center; align-items: center; }
-.win-msg { font-family: 'Orbitron', sans-serif; font-size: 1.1vw; color: #2ECC71; margin-bottom: 0.4vw; }
-.win-amount { font-family: 'Orbitron', sans-serif; font-size: 1.3vw; color: #F1C40F; font-weight: 900; }
-
-.custom-alert-overlay {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px);
-    display: flex; justify-content: center; align-items: center; z-index: 99999999;
-    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
-}
-.custom-alert-overlay.show { opacity: 1; pointer-events: auto; }
-.custom-alert-box {
-    width: 24vw; min-width: 300px;
-    background: linear-gradient(135deg, #1b2838, #0e1621);
-    border: 0.2vw solid #f1c40f; border-radius: 1vw; padding: 2vw; text-align: center;
-    box-shadow: 0 0 2.5vw rgba(241, 196, 15, 0.5);
-    transform: scale(0.7); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.custom-alert-overlay.show .custom-alert-box { transform: scale(1); }
-.custom-alert-icon { font-size: 2.2vw; color: #f1c40f; margin-bottom: 1vw; }
-.custom-alert-message { font-family: 'Rajdhani', sans-serif; font-size: 1.05vw; color: #fff; font-weight: bold; margin-bottom: 1.5vw; line-height: 1.4; }
-.custom-alert-btn {
-    font-family: 'Orbitron', sans-serif; background: linear-gradient(135deg, #f1c40f, #d35400);
-    color: #000; border: none; padding: 0.6vw 2vw; border-radius: 0.5vw; font-size: 0.9vw; font-weight: bold; cursor: pointer;
-}
-
-.backpack-float {
-    position: fixed; bottom: 5.5vw; right: 1.5vw; width: 3.2vw; height: 3.2vw;
-    background: linear-gradient(135deg, #f1c40f, #d35400); border-radius: 50%;
-    display: flex; justify-content: center; align-items: center; color: #fff; font-size: 1.4vw; cursor: pointer;
-    box-shadow: 0 0 1vw rgba(241, 196, 15, 0.6); z-index: 998; transition: transform 0.2s;
-}
-.backpack-float:hover { transform: scale(1.1); }
-
-.inventory-modal-overlay {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px);
-    display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 99999;
-}
-.inventory-modal-overlay.show { opacity: 1; pointer-events: auto; }
-.inventory-modal-box {
-    width: 38vw; min-width: 450px; background: linear-gradient(135deg, #1b2838, #0e1621);
-    border: 0.25vw solid #f1c40f; border-radius: 1.2vw; padding: 2vw; position: relative;
-}
-.inventory-title { font-family: 'Orbitron', sans-serif; font-size: 1.5vw; color: #f1c40f; text-align: center; margin-bottom: 1.5vw; }
-.inventory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; max-height: 25vw; overflow-y: auto; padding: 0.5vw; }
-.inv-item-card {
-    background: linear-gradient(135deg, #1e272e, #111); border: 0.15vw solid #34495E;
-    border-radius: 0.6vw; padding: 0.8vw; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; min-height: 5.5vw;
-}
-.inv-item-img { width: 3vw; height: 3vw; object-fit: contain; margin-bottom: 0.4vw; }
-.inv-item-name { font-size: 0.65vw; color: #b2b2c2; text-align: center; font-family: 'Rajdhani', sans-serif; font-weight: bold; }
-.inv-item-count {
-    position: absolute; top: 0.3vw; right: 0.4vw; font-family: 'Orbitron', sans-serif;
-    font-size: 0.75vw; font-weight: 900; color: #f1c40f; background: rgba(0, 0, 0, 0.8); padding: 0.1vw 0.35vw; border-radius: 0.3vw; border: 0.05vw solid #f1c40f;
-}
-
-/* AUTH MODAL */
-.auth-modal-overlay {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); z-index: 1000;
-    display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
-}
-.auth-modal-overlay.active { opacity: 1; pointer-events: auto; }
-.auth-modal-box { width: 47.91vw; height: 28.12vw; background: #202026; border-radius: 0.625vw; display: flex; overflow: hidden; position: relative; }
-.auth-banner-col {
-    width: 48%; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%), url('https://images.unsplash.com/photo-1511193311914-0346f16efe90?auto=format&fit=crop&w=800&q=80') center/cover;
-    padding: 2.08vw; display: flex; flex-direction: column; justify-content: flex-end;
-}
-.auth-banner-text h2 { font-size: 1.56vw; font-weight: 800; color: #fff; line-height: 1.3; }
-.brand-gold { color: #e5c158; }
-.auth-form-col { width: 52%; background: #22222a; padding: 2.08vw; display: flex; flex-direction: column; justify-content: center; position: relative; color: #fff; }
-.modal-close-x { position: absolute; top: 1.04vw; right: 1.04vw; background: transparent; border: none; color: #888; font-size: 1.45vw; cursor: pointer; }
-.modal-main-title { font-size: 1.17vw; font-weight: 700; margin-bottom: 1.04vw; color: #fff; }
-.form-group { margin-bottom: 0.83vw; position: relative; }
-.auth-input { width: 100%; background: #17171c; border: 0.052vw solid #333; padding: 0.73vw 0.83vw; border-radius: 0.31vw; color: #fff; font-size: 0.73vw; outline: none; }
-.password-wrap { position: relative; }
-.toggle-pwd { position: absolute; right: 0.83vw; top: 50%; transform: translateY(-50%); color: #777; cursor: pointer; font-size: 0.83vw; }
-.form-extra-row { display: flex; justify-content: flex-end; margin-bottom: 1.04vw; }
-.forgot-pwd-link { color: #888; font-size: 0.68vw; text-decoration: none; }
-.form-terms-row { margin-bottom: 1.04vw; font-size: 0.68vw; color: #b2b2c2; width: 100%; }
-.terms-label { display: flex; align-items: center; gap: 0.52vw; cursor: pointer; line-height: 1.4; }
-.btn-auth-submit {
-    width: 100%; background: linear-gradient(135deg, #b8860b, #996515); color: #fff; border: none;
-    padding: 0.73vw; border-radius: 0.31vw; font-size: 0.78vw; font-weight: bold; cursor: pointer; margin-bottom: 1.04vw;
-}
-.auth-switch-text { text-align: center; font-size: 0.68vw; color: #888; }
-.auth-switch-text a { color: #e5c158; text-decoration: none; font-weight: 600; }
 
 /* ==========================================
-   TÀI XỈU (SIC BO) STYLING - CẬP NHẬT MỚI
+   XÚC XẮC (TÀI XỈU) - HỒNG & XANH CUTE
    ========================================== */
 .taixiu-game-container {
     display: flex;
@@ -2033,16 +1796,16 @@ body {
 }
 
 .taixiu-main-box {
-    background: radial-gradient(circle at center, #2c1e13 0%, #120a05 100%);
-    border: 0.25vw solid #d4ac0d;
-    border-radius: 1.5vw;
+    background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+    border: 0.25vw solid #ff69b4;
+    border-radius: 2vw;
     padding: 2vw 2.5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 72vw;
     min-width: 780px;
-    box-shadow: 0 0 3vw rgba(212, 172, 13, 0.5);
+    box-shadow: 0 0 3vw rgba(255, 105, 180, 0.4);
     position: relative;
 }
 
@@ -2052,16 +1815,17 @@ body {
 }
 
 .taixiu-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8vw;
-    color: #f1c40f;
-    text-shadow: 0 0 0.5vw rgba(241, 196, 15, 0.6);
+    font-family: 'Comic Neue', cursive;
+    font-size: 2vw;
+    color: #ff1493;
+    text-shadow: 0 0 0.5vw rgba(255, 105, 180, 0.4);
     margin-bottom: 0.3vw;
 }
 
 .taixiu-session-info {
-    font-size: 0.9vw;
-    color: #d2b48c;
+    font-size: 0.95vw;
+    color: #8c6873;
+    font-weight: bold;
 }
 
 .taixiu-table {
@@ -2069,9 +1833,9 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    border: 0.15vw solid #8b5a2b;
-    border-radius: 1.2vw;
+    background: rgba(255, 255, 255, 0.7);
+    border: 0.15vw dashed #ffb6c1;
+    border-radius: 1.5vw;
     padding: 1.5vw;
     margin-bottom: 1.2vw;
     position: relative;
@@ -2080,15 +1844,15 @@ body {
 
 .tx-side {
     width: 26%;
-    background: linear-gradient(135deg, #3d2314, #1a0f08);
-    border: 0.15vw solid #d4ac0d;
-    border-radius: 1vw;
+    background: linear-gradient(135deg, #fff, #fff0f5);
+    border: 0.15vw solid #ff69b4;
+    border-radius: 1.2vw;
     padding: 1.5vw 1vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.8vw;
-    box-shadow: inset 0 0 1vw rgba(0,0,0,0.6);
+    box-shadow: 0 0.3vw 1vw rgba(255, 105, 180, 0.2);
     transition: all 0.2s;
     position: relative;
 }
@@ -2096,39 +1860,40 @@ body {
 .tx-side.selected-side {
     border-color: #2ecc71;
     box-shadow: 0 0 1.5vw #2ecc71;
+    background: #e8f8f5;
 }
 
 .tx-side-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2vw;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.8vw;
     font-weight: 900;
-    color: #f1c40f;
-    text-shadow: 0 0 0.4vw rgba(0,0,0,0.8);
+    color: #ff1493;
 }
 
 .tx-sub-info {
     font-size: 0.8vw;
-    color: #aaa;
+    color: #8c6873;
+    font-weight: bold;
 }
 
 .tx-user-bet {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.85vw;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9vw;
     color: #2ecc71;
-    font-weight: bold;
+    font-weight: 900;
 }
 
 .btn-tx-bet {
-    font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(135deg, #d4ac0d, #b7950b);
-    color: #000;
+    font-family: 'Comic Neue', cursive;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: #fff;
     border: none;
     padding: 0.6vw 1.5vw;
-    border-radius: 0.5vw;
+    border-radius: 1vw;
     font-size: 0.9vw;
-    font-weight: bold;
+    font-weight: 900;
     cursor: pointer;
-    box-shadow: 0 0.3vw 0.8vw rgba(212, 172, 13, 0.4);
+    box-shadow: 0 0.3vw 0.8vw rgba(255, 105, 180, 0.4);
     transition: transform 0.1s;
 }
 
@@ -2137,21 +1902,21 @@ body {
 }
 
 .btn-tx-cancel {
-    font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    font-family: 'Comic Neue', cursive;
+    background: linear-gradient(135deg, #ff6b6b, #fa5252);
     color: #fff;
     border: none;
     padding: 0.5vw 1.2vw;
-    border-radius: 0.4vw;
+    border-radius: 1vw;
     font-size: 0.8vw;
-    font-weight: bold;
+    font-weight: 900;
     cursor: pointer;
-    box-shadow: 0 0.2vw 0.6vw rgba(231, 76, 60, 0.5);
+    box-shadow: 0 0.2vw 0.6vw rgba(255, 107, 107, 0.4);
     margin-left: auto;
 }
 
 .btn-tx-cancel:hover {
-    background: linear-gradient(135deg, #c0392b, #962d22);
+    transform: scale(1.05);
 }
 
 .tx-center-arena {
@@ -2165,14 +1930,14 @@ body {
 .tx-dice-cup-area {
     width: 11vw;
     height: 11vw;
-    background: #111;
-    border: 0.2vw solid #d4ac0d;
+    background: #fff;
+    border: 0.2vw solid #ffd700;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    box-shadow: inset 0 0 1.5vw rgba(0,0,0,0.9);
+    box-shadow: inset 0 0 1.5vw rgba(255, 215, 0, 0.4), 0 0 1vw rgba(255, 182, 193, 0.5);
 }
 
 .tx-dice-container {
@@ -2185,38 +1950,39 @@ body {
 .tx-dice {
     width: 2.5vw;
     height: 2.5vw;
-    background: #fff;
-    color: #c0392b;
-    border-radius: 0.4vw;
+    background: #fff8dc;
+    color: #ff1493;
+    border-radius: 0.5vw;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.8vw;
     font-weight: bold;
-    box-shadow: 0 0.2vw 0.5vw rgba(0,0,0,0.5);
+    box-shadow: 0 0.2vw 0.5vw rgba(0,0,0,0.15);
+    border: 0.1vw solid #ffb6c1;
 }
 
 .tx-bowl {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle, #b8860b, #533f04);
+    background: radial-gradient(circle, #ffb6c1, #ff69b4);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 0.25vw solid #ffd700;
-    box-shadow: 0 0.5vw 1.5vw rgba(0,0,0,0.8);
+    box-shadow: 0 0.5vw 1.5vw rgba(255, 105, 180, 0.5);
     cursor: pointer;
     z-index: 10;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .tx-bowl-inner {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.9vw;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1vw;
     color: #fff;
     font-weight: 900;
-    text-shadow: 0 0 0.3vw #000;
+    text-shadow: 0 0 0.3vw rgba(0,0,0,0.3);
 }
 
 .tx-bowl.shaking {
@@ -2239,10 +2005,10 @@ body {
 
 .tx-result-announcement {
     margin-top: 0.8vw;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.95vw;
-    color: #f1c40f;
-    font-weight: bold;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1vw;
+    color: #ff1493;
+    font-weight: 900;
     text-align: center;
 }
 
@@ -2252,20 +2018,22 @@ body {
     gap: 1vw;
     margin-bottom: 1.2vw;
     font-size: 0.85vw;
-    color: #d2b48c;
+    color: #5c4033;
     width: 100%;
+    font-weight: bold;
 }
 
 .tx-input {
     width: 5vw;
-    background: #17171c;
-    border: 0.05vw solid #d4ac0d;
+    background: #fff;
+    border: 0.1vw solid #ff69b4;
     padding: 0.4vw 0.6vw;
-    border-radius: 0.3vw;
-    color: #fff;
+    border-radius: 0.8vw;
+    color: #ff1493;
     font-size: 0.85vw;
     text-align: center;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
 }
 
 .tx-quick-chips {
@@ -2274,37 +2042,38 @@ body {
 }
 
 .tx-chip {
-    background: linear-gradient(135deg, #d4ac0d, #876703);
-    color: #000;
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    color: #fff;
     border: 0.1vw solid #fff;
     padding: 0.3vw 0.7vw;
     border-radius: 50%;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: 0.75vw;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 0.2vw 0.4vw rgba(0,0,0,0.5);
+    box-shadow: 0 0.2vw 0.4vw rgba(0,0,0,0.2);
 }
 
 .tx-chip:hover {
     transform: scale(1.1);
 }
 
-/* BẢNG LỊCH SỬ CẦU (Căn góc trái trên, có cuộn ngang) */
 .tx-history-board-container {
     width: 100%;
-    background: rgba(10, 5, 2, 0.85);
-    border: 0.15vw solid #8b5a2b;
-    border-radius: 0.8vw;
+    background: #fff;
+    border: 0.15vw solid #ffb6c1;
+    border-radius: 1vw;
     padding: 0.8vw;
+    box-shadow: 0 0.2vw 0.8vw rgba(255, 182, 193, 0.3);
 }
 
 .tx-history-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.85vw;
-    color: #f1c40f;
+    font-family: 'Comic Neue', cursive;
+    font-size: 0.9vw;
+    color: #ff1493;
     margin-bottom: 0.6vw;
     text-align: left;
+    font-weight: 900;
 }
 
 .tx-history-scroll-wrapper {
@@ -2337,21 +2106,21 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 0.55vw;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
-    box-shadow: 0 0.1vw 0.3vw rgba(0,0,0,0.5);
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 900;
+    box-shadow: 0 0.1vw 0.3vw rgba(0,0,0,0.2);
 }
 
 .tx-history-cell.tai {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
     color: #fff;
-    border: 0.1vw solid #f1c40f;
+    border: 0.1vw solid #ffd700;
 }
 
 .tx-history-cell.xiu {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
     color: #fff;
-    border: 0.1vw solid #f1c40f;
+    border: 0.1vw solid #ffd700;
 }
 
 /* HIỆU ỨNG TIỀN BAY (FLYING COIN) */
@@ -2359,17 +2128,17 @@ body {
     position: fixed;
     width: 1.5vw;
     height: 1.5vw;
-    background: radial-gradient(circle, #f1c40f, #d35400);
+    background: radial-gradient(circle, #ffd700, #ff8c00);
     border: 0.1vw solid #fff;
     border-radius: 50%;
-    box-shadow: 0 0 0.6vw #f1c40f;
+    box-shadow: 0 0 0.6vw #ffd700;
     z-index: 9999999;
     pointer-events: none;
     transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* ==========================================
-   VẼ BÙA (AMULET GACHA) STYLING
+   VẼ BÙA (MY MELODY) STYLING
    ========================================== */
 .amulet-game-container {
     display: flex;
@@ -2382,29 +2151,30 @@ body {
 }
 
 .amulet-lobby-box {
-    background: radial-gradient(circle at center, #1b2631 0%, #0d1117 100%);
-    border: 0.25vw solid #3498db;
-    border-radius: 1.5vw;
+    background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+    border: 0.25vw solid #ff69b4;
+    border-radius: 2vw;
     padding: 4vw 5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 0 3vw rgba(52, 152, 219, 0.5);
+    box-shadow: 0 0 3vw rgba(255, 105, 180, 0.4);
     text-align: center;
 }
 
 .amulet-main-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2vw;
-    color: #3498db;
+    font-family: 'Comic Neue', cursive;
+    font-size: 2.2vw;
+    color: #ff1493;
     margin-bottom: 0.8vw;
-    text-shadow: 0 0 0.5vw rgba(52, 152, 219, 0.6);
+    text-shadow: 0 0 0.5vw rgba(255, 105, 180, 0.4);
 }
 
 .amulet-subtitle {
-    font-size: 1vw;
-    color: #b2b2c2;
+    font-size: 1.05vw;
+    color: #8c6873;
     margin-bottom: 3vw;
+    font-weight: bold;
 }
 
 .amulet-options-row {
@@ -2413,99 +2183,94 @@ body {
 }
 
 .btn-amulet-choice {
-    background: linear-gradient(135deg, #2980b9, #1f618d);
-    border: 0.15vw solid #f1c40f;
-    border-radius: 0.8vw;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    border: 0.15vw solid #ffd700;
+    border-radius: 1vw;
     padding: 0.5vw 2vw;
-    width: 14vw;
-    height: 4.2vw;
+    width: 15vw;
+    height: 4.5vw;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.1vw;
-    box-shadow: 0 0 1.5vw rgba(41, 128, 185, 0.5);
+    gap: 0.2vw;
+    box-shadow: 0 0 1.5vw rgba(255, 105, 180, 0.5);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-amulet-choice:hover {
     transform: translateY(-0.4vw);
-    box-shadow: 0 0 2.5vw rgba(241, 196, 15, 0.6);
+    box-shadow: 0 0 2.5vw rgba(255, 215, 0, 0.7);
 }
 
 .choice-name {
-    font-family: 'Orbitron', sans-serif;
-    margin-bottom: -1vw;
-    margin-top: 1vw;
-    font-size: 1vw; /* Thu nhỏ chữ tiêu đề lại một chút cho cân đối và không bị tràn viền */
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.1vw;
     color: #fff;
-    font-weight: bold;
-    line-height: 1.2;
+    font-weight: 900;
 }
 
 .choice-cost {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: 1vw;
-    color: #f1c40f;
+    color: #ffd700;
     display: flex;
     align-items: center;
-    gap: 0.15vw; /* Thu gọn khoảng cách giữa số và icon */
+    gap: 0.2vw;
+    font-weight: bold;
 }
 
-/* Ô HIỂN THỊ SỐ DƯ GIẤY VẼ BÙA TRONG TAB VẼ BÙA */
 .amulet-balance-box {
-    background: rgba(18, 34, 27, 0.8);
-    border: 0.12vw solid #3498db;
+    background: #fff;
+    border: 0.15vw solid #ff69b4;
     padding: 0.6vw 1.8vw;
     border-radius: 1vw;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.95vw;
-    color: #ecf0f1;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1vw;
+    color: #5c4033;
     margin-bottom: 1.8vw;
     display: flex;
     align-items: center;
     gap: 0.6vw;
-    box-shadow: 0 0.2vw 0.5vw #0d1b2a;
+    box-shadow: 0 0.2vw 0.5vw rgba(255, 182, 193, 0.3);
+    font-weight: bold;
 }
 
 .amulet-balance-icon {
-    width: 3vw;
-    height: 1.4vw;
+    width: 1.8vw;
+    height: 1.8vw;
     object-fit: contain;
     vertical-align: middle;
-    filter: drop-shadow(0 0 0.3vw #3498db);
 }
 
-/* MÀN HÌNH VẼ BÙA TRÒN */
 .amulet-cost-icon {
-    width: 4vw;
-    height: 4vw;
+    width: 1.8vw;
+    height: 1.8vw;
     object-fit: contain;
     vertical-align: middle;
-    filter: drop-shadow(0 0 0.3vw rgba(46, 204, 113, 0.5));
 }
 
 .amulet-canvas-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: radial-gradient(circle, #0d1b2a 0%, #000814 100%);
-    border: 0.25vw solid #3498db;
+    background: linear-gradient(135deg, #fff0f5, #fff8dc);
+    border: 0.25vw solid #ff69b4;
     border-radius: 2vw;
     padding: 2vw;
-    box-shadow: 0 0 3.5vw rgba(52, 152, 219, 0.6);
+    box-shadow: 0 0 3.5vw rgba(255, 105, 180, 0.4);
 }
 
 .amulet-circle-wrapper {
     width: 26vw;
     height: 26vw;
-    background-color: #0d1b2a;
-    border: 0.3vw solid #5dade2;
+    background-color: #fff;
+    border: 0.3vw solid #ffd700;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
-    box-shadow: inset 0 0 2vw rgba(0,0,0,0.9), 0 0 2vw rgba(93, 173, 226, 0.8);
+    box-shadow: inset 0 0 2vw rgba(255, 182, 193, 0.5), 0 0 2vw rgba(255, 215, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2521,17 +2286,16 @@ body {
 
 .amulet-tip {
     margin-top: 1.5vw;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.9vw;
-    color: #f1c40f;
-    text-shadow: 0 0 0.4vw rgba(241, 196, 15, 0.5);
+    font-family: 'Comic Neue', cursive;
+    font-size: 1vw;
+    color: #ff1493;
+    font-weight: bold;
 }
 
-/* KẾT QUẢ VẼ BÙA */
 .amulet-result-overlay {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(255, 182, 193, 0.85);
     backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
@@ -2540,23 +2304,23 @@ body {
 }
 
 .amulet-result-content {
-    background: linear-gradient(135deg, #1b2631, #0e1621);
-    border: 0.25vw solid #f1c40f;
+    background: #fff;
+    border: 0.25vw solid #ff69b4;
     border-radius: 1.5vw;
     padding: 2.5vw 3vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 0 3vw rgba(241, 196, 15, 0.6);
+    box-shadow: 0 0 3vw rgba(255, 105, 180, 0.5);
     max-width: 50vw;
 }
 
 .amulet-result-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.5vw;
-    color: #f1c40f;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.6vw;
+    color: #ff1493;
     margin-bottom: 2vw;
-    text-shadow: 0 0 0.5vw rgba(241, 196, 15, 0.6);
+    font-weight: 900;
 }
 
 .amulet-rewards-grid {
@@ -2568,31 +2332,39 @@ body {
 }
 
 .amulet-reward-card {
-    width: 6vw;
-    height: 6vw;
-    min-width: 6vw;
-    min-height: 6vw;
-    position: relative; /* Khóa cứng kích thước khung, không cho giãn */
+    background: #fff8dc;
+    border: 0.15vw solid #ffd700;
+    border-radius: 1vw;
+    padding: 1vw;
+    width: 9vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8vw;
+    box-shadow: 0 0.3vw 1vw rgba(255, 215, 0, 0.3);
+}
+
+.amulet-reward-img-box {
+    width: 5vw;
+    height: 5vw;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle, rgba(46, 204, 113, 0.15) 0%, transparent 70%);
-    border-radius: 50%;
 }
 
 .amulet-reward-img {
-    width: 9vw; /* Phóng to icon thêm 3vw nhưng nằm trọn trong khung */
-    height: 9vw;
+    width: 5vw;
+    height: 5vw;
     object-fit: contain;
-    position: absolute;
-    filter: drop-shadow(0 0 0.5vw #2ecc71);
+    filter: drop-shadow(0 0 0.5vw #ff69b4);
 }
 
 .amulet-reward-name {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.8vw;
-    color: #f1c40f;
-    font-weight: bold;
+    font-family: 'Comic Neue', cursive;
+    font-size: 0.9vw;
+    color: #ff1493;
+    font-weight: 900;
     text-align: center;
 }
 
@@ -2602,29 +2374,33 @@ body {
 }
 
 .btn-amulet-ok, .btn-amulet-again {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Comic Neue', cursive;
     padding: 0.7vw 2vw;
-    border-radius: 0.6vw;
-    font-size: 0.9vw;
-    font-weight: bold;
+    border-radius: 1vw;
+    font-size: 1vw;
+    font-weight: 900;
     cursor: pointer;
     border: none;
+    box-shadow: 0 0.2vw 0.5vw rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+}
+
+.btn-amulet-ok:hover, .btn-amulet-again:hover {
+    transform: scale(1.05);
 }
 
 .btn-amulet-ok {
-    background: linear-gradient(135deg, #27ae60, #1e8449);
+    background: #2ecc71;
     color: #fff;
-    box-shadow: 0 0 1vw rgba(39, 174, 96, 0.5);
 }
 
 .btn-amulet-again {
-    background: linear-gradient(135deg, #f39c12, #d68910);
-    color: #000;
-    box-shadow: 0 0 1vw rgba(243, 156, 18, 0.5);
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    color: #fff;
 }
 
 /* ==========================================
-   CỬA HÀNG QUY ĐỔI (CONVERSION) - XANH DỊU MẮT & SANG TRỌNG
+   CỬA HÀNG ĐỔI QUÀ (CONVERSION) - KẸO NGỌT DỄ THƯƠNG
    ========================================== */
 .conversion-game-container {
     display: flex;
@@ -2636,16 +2412,16 @@ body {
 }
 
 .conversion-main-box {
-    background: radial-gradient(circle at center, #162620 0%, #0a120e 100%);
-    border: 0.2vw solid #27ae60;
-    border-radius: 1.5vw;
+    background: linear-gradient(135deg, #fff0f5, #fffacd);
+    border: 0.25vw solid #ff69b4;
+    border-radius: 2vw;
     padding: 2.5vw 3vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 78vw;
     min-width: 820px;
-    box-shadow: 0 0.5vw 2.5vw rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0.5vw 2.5vw rgba(255, 105, 180, 0.4);
 }
 
 .conversion-header {
@@ -2654,16 +2430,17 @@ body {
 }
 
 .conversion-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8vw;
-    color: #2ecc71;
+    font-family: 'Comic Neue', cursive;
+    font-size: 2vw;
+    color: #ff1493;
     margin-bottom: 0.4vw;
-    text-shadow: 0 0 0.3vw rgba(46, 204, 113, 0.4);
+    text-shadow: 0 0 0.3vw rgba(255, 105, 180, 0.4);
 }
 
 .conversion-subtitle {
-    font-size: 0.95vw;
-    color: #95a5a6;
+    font-size: 1vw;
+    color: #8c6873;
+    font-weight: bold;
 }
 
 .conversion-grid {
@@ -2674,23 +2451,23 @@ body {
 }
 
 .conversion-card {
-    background: linear-gradient(135deg, #12221b, #0c1712);
-    border: 0.12vw solid #1e8449;
-    border-radius: 1vw;
+    background: #fff;
+    border: 0.15vw solid #ffb6c1;
+    border-radius: 1.2vw;
     padding: 1.2vw 0.8vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     gap: 1vw;
-    box-shadow: 0 0.3vw 0.8vw rgba(0,0,0,0.5);
+    box-shadow: 0 0.3vw 0.8vw rgba(255, 182, 193, 0.3);
     transition: transform 0.2s, border-color 0.2s;
 }
 
 .conversion-card:hover {
     transform: translateY(-0.3vw);
-    border-color: #2ecc71;
-    box-shadow: 0 0.4vw 1.2vw rgba(46, 204, 113, 0.25);
+    border-color: #ff69b4;
+    box-shadow: 0 0.4vw 1.2vw rgba(255, 105, 180, 0.4);
 }
 
 .conv-item-img-box {
@@ -2698,28 +2475,28 @@ body {
     height: 7vw;
     min-width: 7vw;
     min-height: 7vw;
-    position: relative; /* Cố định khung chứa, không cho phép co giãn */
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle, rgba(39, 174, 96, 0.12) 0%, transparent 70%);
+    background: rgba(255, 182, 193, 0.2);
     border-radius: 50%;
     flex-shrink: 0;
 }
 
 .conv-item-img {
-    width: 9vw; /* Tăng thêm 3vw so với 6vw trước đó */
+    width: 9vw;
     height: 9vw;
     object-fit: contain;
-    position: absolute; /* Giúp icon to ra nhưng bị khóa trong phạm vi ô, không làm ô to theo */
-    filter: drop-shadow(0 0 0.4vw rgba(46, 204, 113, 0.5));
+    position: absolute;
+    filter: drop-shadow(0 0 0.4vw rgba(255, 105, 180, 0.5));
 }
 
 .conv-item-name {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.85vw;
-    color: #ecf0f1;
-    font-weight: bold;
+    font-family: 'Comic Neue', cursive;
+    font-size: 0.9vw;
+    color: #ff1493;
+    font-weight: 900;
     text-align: center;
     height: 2.2vw;
     display: flex;
@@ -2727,50 +2504,51 @@ body {
 }
 
 .btn-conv-buy {
-    background: linear-gradient(135deg, #27ae60, #1e8449);
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
     color: #fff;
     border: none;
-    border-radius: 0.5vw;
+    border-radius: 0.8vw;
     padding: 0 0.8vw;
-    height: 2.4vw; /* Cố định chiều cao nút bấm để các ô hoàn toàn đồng nhất */
+    height: 2.4vw;
     width: 100%;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.8vw;
-    font-weight: bold;
+    font-family: 'Comic Neue', cursive;
+    font-size: 0.85vw;
+    font-weight: 900;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.4vw;
     box-sizing: border-box;
-    box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.2vw 0.5vw rgba(255, 105, 180, 0.3);
     transition: transform 0.1s, background 0.2s;
 }
 
 .btn-conv-buy:hover {
     transform: scale(1.03);
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    background: linear-gradient(135deg, #ff1493, #c71585);
 }
+
 .conv-price-icon-token {
     display: inline-block;
     width: 1.2vw;
     height: 1.2vw;
-    background: radial-gradient(circle, #f1c40f, #d35400);
+    background: radial-gradient(circle, #ffd700, #ff8c00);
     border-radius: 50%;
     border: 0.05vw solid #fff;
 }
 
 .conv-price-icon-badge {
-    width: 3vw;
-    height: 3vw;
+    width: 1.5vw;
+    height: 1.5vw;
     object-fit: contain;
 }
 
-/* MODAL CHỌN SỐ LƯỢNG & XÁC NHẬN - DỊU MẮT */
+/* MODAL CHỌN SỐ LƯỢNG & XÁC NHẬN */
 .conv-modal-overlay {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(255, 182, 193, 0.8);
     backdrop-filter: blur(5px);
     display: flex;
     justify-content: center;
@@ -2779,24 +2557,24 @@ body {
 }
 
 .conv-modal-content {
-    background: linear-gradient(135deg, #15251d, #0b1410);
-    border: 0.2vw solid #27ae60;
+    background: #fff;
+    border: 0.2vw solid #ff69b4;
     border-radius: 1.5vw;
     padding: 2.5vw 3vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 0.5vw 2vw rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0.5vw 2vw rgba(255, 105, 180, 0.4);
     width: 32vw;
     min-width: 360px;
 }
 
 .conv-modal-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.3vw;
-    color: #2ecc71;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.4vw;
+    color: #ff1493;
     margin-bottom: 1.5vw;
-    text-shadow: 0 0 0.3vw rgba(46, 204, 113, 0.4);
+    text-shadow: 0 0 0.3vw rgba(255, 105, 180, 0.3);
     text-align: center;
 }
 
@@ -2805,10 +2583,10 @@ body {
     align-items: center;
     gap: 1vw;
     margin-bottom: 1.5vw;
-    background: rgba(0,0,0,0.3);
+    background: #fff8dc;
     padding: 0.8vw 1.5vw;
     border-radius: 1vw;
-    border: 0.1vw solid #1e8449;
+    border: 0.1vw solid #ffb6c1;
 }
 
 .conv-modal-img {
@@ -2818,10 +2596,10 @@ body {
 }
 
 .conv-modal-name {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1vw;
-    color: #fff;
-    font-weight: bold;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.1vw;
+    color: #ff1493;
+    font-weight: 900;
 }
 
 .conv-slider-area {
@@ -2833,50 +2611,51 @@ body {
 }
 
 .conv-qty-btn {
-    background: #27ae60;
+    background: #ff69b4;
     color: #fff;
     border: none;
     width: 2.5vw;
     height: 2.5vw;
     border-radius: 50%;
-    font-weight: bold;
+    font-weight: 900;
     font-size: 1.2vw;
     cursor: pointer;
-    box-shadow: 0 0.2vw 0.4vw rgba(0,0,0,0.3);
-    transition: transform 0.1s, background 0.2s;
+    box-shadow: 0 0.2vw 0.4vw rgba(255, 105, 180, 0.3);
+    transition: transform 0.1s;
 }
 
 .conv-qty-btn:hover {
     transform: scale(1.08);
-    background: #2ecc71;
 }
 
 .conv-range {
     flex: 1;
-    accent-color: #2ecc71;
+    accent-color: #ff69b4;
     cursor: pointer;
 }
 
 .conv-num-input {
     width: 4.5vw;
-    background: #0d1712;
-    border: 0.1vw solid #1e8449;
-    color: #fff;
+    background: #fff;
+    border: 0.1vw solid #ff69b4;
+    color: #ff1493;
     text-align: center;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: 1vw;
+    font-weight: bold;
     padding: 0.3vw;
-    border-radius: 0.4vw;
+    border-radius: 0.8vw;
 }
 
 .conv-total-cost-display {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.95vw;
-    color: #ecf0f1;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1vw;
+    color: #5c4033;
     margin-bottom: 2vw;
     display: flex;
     align-items: center;
     gap: 0.5vw;
+    font-weight: bold;
 }
 
 .conv-modal-actions {
@@ -2887,11 +2666,11 @@ body {
 }
 
 .btn-conv-action {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Comic Neue', cursive;
     padding: 0.7vw 2vw;
-    border-radius: 0.6vw;
-    font-size: 0.9vw;
-    font-weight: bold;
+    border-radius: 1vw;
+    font-size: 1vw;
+    font-weight: 900;
     cursor: pointer;
     border: none;
     transition: transform 0.1s;
@@ -2902,42 +2681,430 @@ body {
 }
 
 .btn-conv-cancel {
-    background: #c0392b;
+    background: #ff6b6b;
     color: #fff;
 }
 
 .btn-conv-next, .btn-conv-confirm {
-    background: #27ae60;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
     color: #fff;
 }
 
 .conv-confirm-text {
-    font-size: 0.95vw;
-    color: #bdc3c7;
+    font-size: 1vw;
+    color: #5c4033;
     text-align: center;
     margin-bottom: 2vw;
     line-height: 1.5;
+    font-weight: bold;
 }
-/* Ô HIỂN THỊ SỐ DƯ HUY HIỆU TRONG TAB QUY ĐỔI */
+
 .conversion-balance-box {
-    background: rgba(18, 34, 27, 0.8);
-    border: 0.12vw solid #1e8449;
+    background: #fff;
+    border: 0.15vw solid #ff69b4;
     padding: 0.6vw 1.8vw;
     border-radius: 1vw;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.95vw;
-    color: #ecf0f1;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1vw;
+    color: #5c4033;
     margin-bottom: 1.8vw;
     display: flex;
     align-items: center;
     gap: 0.6vw;
-    box-shadow: 0 0.2vw 0.5vw rgba(0,0,0,0.4);
+    box-shadow: 0 0.2vw 0.5vw rgba(255, 182, 193, 0.3);
+    font-weight: bold;
 }
 
 .conv-balance-badge-icon {
-    width: 3vw;
-    height: 3vw;
+    width: 2vw;
+    height: 2vw;
     object-fit: contain;
     vertical-align: middle;
-    filter: drop-shadow(0 0 0.3vw rgba(46, 204, 113, 0.5));
+}
+
+/* ==========================================
+   SANRIO HOME VIEW - REDESIGNED CUTE STYLE
+   ========================================== */
+
+.sanrio-hero-card {
+    width: 100%;
+    min-height: 22vw;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 50%, #fffacd 100%);
+    border-radius: 2vw;
+    border: 0.25vw solid #ff69b4;
+    padding: 2.5vw 3.5vw;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0.6vw 2vw rgba(255, 105, 180, 0.3);
+}
+
+.hero-sparkle-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(#ff69b4 0.15vw, transparent 0.15vw), radial-gradient(#ffd700 0.15vw, transparent 0.15vw);
+    background-size: 3vw 3vw;
+    background-position: 0 0, 1.5vw 1.5vw;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.hero-content-box {
+    max-width: 42vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    z-index: 2;
+}
+
+.hero-badge-pill {
+    background: #fff;
+    color: #ff1493;
+    padding: 0.4vw 1.2vw;
+    border-radius: 1.5vw;
+    font-family: 'Comic Neue', cursive;
+    font-size: 0.95vw;
+    font-weight: 900;
+    width: fit-content;
+    border: 0.15vw solid #ffb6c1;
+    box-shadow: 0 0.2vw 0.5vw rgba(255, 182, 193, 0.5);
+}
+
+.hero-main-title {
+    font-family: 'Comic Neue', cursive;
+    font-size: 2.4vw;
+    font-weight: 900;
+    color: #ff1493;
+    line-height: 1.2;
+    text-shadow: 0 0.1vw 0.3vw rgba(255, 255, 255, 0.9);
+}
+
+.hero-sub-desc {
+    font-size: 1vw;
+    color: #5c4033;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.hero-btn-group {
+    display: flex;
+    gap: 1vw;
+    margin-top: 0.5vw;
+}
+
+.btn-sanrio-primary {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: #fff;
+    border: 0.15vw solid #ffd700;
+    padding: 0.8vw 2vw;
+    border-radius: 1.2vw;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.1vw;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 0.4vw 1vw rgba(255, 105, 180, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.btn-sanrio-primary:hover {
+    transform: translateY(-0.2vw) scale(1.03);
+    box-shadow: 0 0.6vw 1.5vw rgba(255, 20, 147, 0.6);
+}
+
+.hero-floating-elements {
+    position: absolute;
+    right: 3vw;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+    z-index: 2;
+}
+
+.floating-sticker {
+    font-size: 3vw;
+    animation: floatSticker 3s ease-in-out infinite;
+    filter: drop-shadow(0 0.4vw 0.8vw rgba(255, 105, 180, 0.4));
+}
+
+.floating-sticker.s-2 { animation-delay: 1s; }
+.floating-sticker.s-3 { animation-delay: 2s; }
+
+@keyframes floatSticker {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-0.8vw) rotate(8deg); }
+}
+
+.sanrio-promo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5vw;
+}
+
+.sanrio-promo-box {
+    border-radius: 1.5vw;
+    padding: 1.8vw 2vw;
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+    position: relative;
+    overflow: hidden;
+    border: 0.2vw solid #ffb6c1;
+    box-shadow: 0 0.4vw 1.2vw rgba(255, 182, 193, 0.3);
+    transition: transform 0.3s;
+}
+
+.sanrio-promo-box:hover {
+    transform: translateY(-0.3vw);
+}
+
+.sanrio-promo-box.box-pink {
+    background: linear-gradient(135deg, #fff0f5, #ffc0cb);
+    border-color: #ff69b4;
+}
+
+.sanrio-promo-box.box-yellow {
+    background: linear-gradient(135deg, #fffacd, #ffeb3b);
+    border-color: #ffd700;
+}
+
+.promo-ribbon {
+    position: absolute;
+    top: 0; right: 0;
+    background: #ff4757;
+    color: #fff;
+    font-family: 'Comic Neue', cursive;
+    font-size: 0.7vw;
+    font-weight: 900;
+    padding: 0.3vw 1.2vw;
+    border-bottom-left-radius: 1vw;
+    box-shadow: 0 0.2vw 0.5vw rgba(0,0,0,0.15);
+}
+
+.promo-ribbon.hot {
+    background: #ffa500;
+}
+
+.promo-icon-circle {
+    width: 4.5vw;
+    height: 4.5vw;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+    box-shadow: 0 0.3vw 0.8vw rgba(0,0,0,0.1);
+    border: 0.15vw solid #fff;
+    flex-shrink: 0;
+}
+
+.promo-text-content h3 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.4vw;
+    color: #ff1493;
+    margin-bottom: 0.3vw;
+    font-weight: 900;
+}
+
+.sanrio-promo-box.box-yellow .promo-text-content h3 {
+    color: #b8860b;
+}
+
+.promo-text-content p {
+    font-size: 0.95vw;
+    color: #5c4033;
+    font-weight: bold;
+}
+
+.badge-token-highlight {
+    color: #ff1493;
+    font-weight: 900;
+    background: #fff;
+    padding: 0.1vw 0.5vw;
+    border-radius: 0.5vw;
+    border: 0.1vw solid #ffb6c1;
+}
+
+.section-title-cute {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.4vw;
+    color: #ff1493;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8vw;
+    margin-bottom: 1vw;
+    font-weight: 900;
+    text-shadow: 0 0 0.3vw rgba(255, 105, 180, 0.3);
+}
+
+/* ==========================================
+   MATH QUIZ (NHẬN TOKEN MIỄN PHÍ) STYLING
+   ========================================== */
+.math-quiz-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1vw 0;
+}
+
+.math-quiz-box {
+    background: linear-gradient(135deg, #fff0f5, #fffacd);
+    border: 0.25vw solid #ff69b4;
+    border-radius: 2vw;
+    padding: 2.5vw 3vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 65vw;
+    min-width: 720px;
+    box-shadow: 0 0.5vw 2vw rgba(255, 105, 180, 0.4);
+}
+
+.math-quiz-title {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.8vw;
+    color: #ff1493;
+    margin-bottom: 0.4vw;
+    text-shadow: 0 0 0.3vw rgba(255, 105, 180, 0.3);
+    text-align: center;
+}
+
+.math-quiz-subtitle {
+    font-size: 0.95vw;
+    color: #8c6873;
+    font-weight: bold;
+    margin-bottom: 1.5vw;
+    text-align: center;
+}
+
+.quiz-status-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: #fff;
+    padding: 0.8vw 1.5vw;
+    border-radius: 1vw;
+    border: 0.1vw solid #ffb6c1;
+    margin-bottom: 1.5vw;
+    font-size: 0.9vw;
+    font-weight: bold;
+    color: #5c4033;
+}
+
+.quiz-question-card {
+    width: 100%;
+    background: #fff;
+    border: 0.15vw solid #ff69b4;
+    border-radius: 1.2vw;
+    padding: 2vw;
+    box-shadow: 0 0.3vw 1vw rgba(255, 182, 193, 0.3);
+}
+
+.quiz-q-number {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.1vw;
+    color: #ff1493;
+    font-weight: 900;
+    margin-bottom: 0.6vw;
+}
+
+.quiz-q-text {
+    font-size: 1.05vw;
+    color: #5c4033;
+    font-weight: bold;
+    margin-bottom: 1.5vw;
+    line-height: 1.4;
+}
+
+.quiz-options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vw;
+}
+
+.quiz-option-btn {
+    background: #fff8dc;
+    border: 0.12vw solid #ffb6c1;
+    border-radius: 0.8vw;
+    padding: 0.8vw 1.2vw;
+    text-align: left;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.95vw;
+    color: #5c4033;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quiz-option-btn:hover {
+    background: #ffe4e1;
+    border-color: #ff69b4;
+}
+
+.quiz-option-btn.selected {
+    background: #ff69b4;
+    color: #fff;
+    border-color: #ff1493;
+}
+
+.quiz-option-btn.correct {
+    background: #2ecc71 !important;
+    color: #fff !important;
+    border-color: #27ae60 !important;
+}
+
+.quiz-option-btn.incorrect {
+    background: #e74c3c !important;
+    color: #fff !important;
+    border-color: #c0392b !important;
+}
+
+.btn-submit-quiz, .btn-next-quiz {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: #fff;
+    border: 0.15vw solid #ffd700;
+    padding: 0.7vw 2.5vw;
+    border-radius: 1vw;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1vw;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 0.2vw 0.6vw rgba(255, 105, 180, 0.4);
+}
+
+/* ==========================================
+   STYLE HIỂN THỊ TOÁN HỌC CHUYÊN NGHIỆP
+   ========================================== */
+.math-fraction {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0.9em;
+    margin: 0 0.2vw;
+    line-height: 1.15;
+}
+.math-fraction .numerator {
+    border-bottom: 0.12vw solid currentColor;
+    padding-bottom: 0.1vw;
+}
+.math-fraction .denominator {
+    padding-top: 0.1vw;
+}
+.math-sqrt {
+    display: inline-flex;
+    align-items: center;
+}
+.math-radicand {
+    border-top: 0.12vw solid currentColor;
+    padding-left: 0.2vw;
+    padding-right: 0.2vw;
 }
