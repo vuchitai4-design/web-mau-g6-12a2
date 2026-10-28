@@ -1110,36 +1110,6 @@ document.querySelectorAll('a[href="#"]').forEach(link => {
    ========================================== */
 const taixiuView = document.getElementById('taixiuView');
 
-// Thêm điều hướng vào switchView
-const originalSwitchView = window.switchView || function(){};
-// Cập nhật switchView xử lý taixiuView
-function switchView(target) {
-    if (!homeView || !wheel8View || !chestGameView || !slotView || !lotteryView || !taixiuView || !otherView) return;
-    homeView.style.display = 'none';
-    wheel8View.style.display = 'none';
-    chestGameView.style.display = 'none';
-    slotView.style.display = 'none';
-    lotteryView.style.display = 'none';
-    taixiuView.style.display = 'none';
-    otherView.style.display = 'none';
-
-    if (target === 'home') {
-        homeView.style.display = 'block';
-    } else if (target === 'wheel8') {
-        wheel8View.style.display = 'block';
-    } else if (target === 'inventory') {
-        chestGameView.style.display = 'block';
-    } else if (target === 'slot') {
-        slotView.style.display = 'block';
-    } else if (target === 'lottery') {
-        lotteryView.style.display = 'block';
-    } else if (target === 'taixiu') {
-        taixiuView.style.display = 'block';
-    } else {
-        otherView.style.display = 'block';
-    }
-}
-
 let txState = 'betting'; // 'betting', 'shaking', 'waiting_result', 'result'
 let txTimerCountdown = 30;
 let txUserChoice = null; // 'tai' hoặc 'xiu'
@@ -1161,7 +1131,6 @@ const txXiuUser = document.getElementById('txXiuUser');
 const txBetInput = document.getElementById('txBetInput');
 const txHistoryGrid = document.getElementById('txHistoryGrid');
 
-// Chọn chip nhanh
 document.querySelectorAll('.tx-chip').forEach(chip => {
     chip.addEventListener('click', () => {
         let val = parseInt(chip.getAttribute('data-val'));
@@ -1169,7 +1138,6 @@ document.querySelectorAll('.tx-chip').forEach(chip => {
     });
 });
 
-// Hàm tạo hiệu ứng tiền bay
 function animateFlyingCoin(fromEl, toEl, callback) {
     if (!fromEl || !toEl) {
         if (callback) callback();
@@ -1195,7 +1163,6 @@ function animateFlyingCoin(fromEl, toEl, callback) {
     }, 800);
 }
 
-// Xử lý đặt cược chung (Giới hạn tổng cược tối đa 20 Token mỗi phiên)
 function placeOrSwitchBet(choice) {
     if (txState !== 'betting') {
         showCustomAlert('⚠️ Đã qua thời gian đặt cược của phiên này!');
@@ -1211,141 +1178,8 @@ function placeOrSwitchBet(choice) {
     let targetEl = choice === 'tai' ? document.getElementById('txTaiSide') : document.getElementById('txXiuSide');
 
     if (txUserChoice === choice) {
-        // Cùng cửa -> Cược thêm, kiểm tra tổng không vượt quá 20 token
         if (txUserBetAmount + betVal > 20) {
-            showCustomAlert('⚠️ Tổng số tiền cược tối đa trong 1 phiên cho phép là 20 Token!');
-            return;
-        }
-        if (userTokens < betVal) {
-            showCustomAlert('⚠️ Bạn không đủ Token để đặt thêm!');
-            return;
-        }
-        userTokens -= betVal;
-        txUserBetAmount += betVal;
-        saveUserTokens();
-        updateUI();
-
-        animateFlyingCoin(sourceEl, targetEl);
-    } else {
-        // Đổi cửa: Kiểm tra mức cược cửa mới không vượt quá 20 token
-        if (betVal > 20) {
-            showCustomAlert('⚠️ Mức cược tối đa trong 1 phiên là 20 Token!');
-            return;
-        }
-        let totalNeeded = betVal;
-        if (userTokens + txUserBetAmount < totalNeeded) {
-            showCustomAlert('⚠️ Bạn không đủ Token để chuyển cửa!');
-            return;
-        }
-
-        userTokens += txUserBetAmount; // Hoàn cược cũ vào ví tạm thời
-        userTokens -= totalNeeded;     // Trừ cược mới
-        txUserBetAmount = betVal;
-        txUserChoice = choice;
-        saveUserTokens();
-        updateUI();
-
-        animateFlyingCoin(sourceEl, targetEl);
-    }
-
-    // Cập nhật giao diện hiển thị tiền cược
-    if (txUserChoice === 'tai') {
-        if (txTaiUser) txTaiUser.innerText = txUserBetAmount;
-        if (txXiuUser) txXiuUser.innerText = '0';
-        document.getElementById('txTaiSide')?.classList.add('selected-side');
-        document.getElementById('txXiuSide')?.classList.remove('selected-side');
-    } else if (txUserChoice === 'xiu') {
-        if (txXiuUser) txXiuUser.innerText = txUserBetAmount;
-        if (txTaiUser) txTaiUser.innerText = '0';
-        document.getElementById('txXiuSide')?.classList.add('selected-side');
-        document.getElementById('txTaiSide')?.classList.remove('selected-side');
-    }
-}
-
-btnTxTai?.addEventListener('click', () => placeOrSwitchBet('tai'));
-btnTxXiu?.addEventListener('click', () => placeOrSwitchBet('xiu'));
-
-// Nút Hủy Cược (Rút toàn bộ tiền cược trong phiên)
-btnTxCancel?.addEventListener('click', () => {
-    if (txState !== 'betting') {
-        showCustomAlert('⚠️ Không thể hủy cược khi đã qua thời gian đặt cược!');
-        return;
-    }
-    if (txUserBetAmount <= 0) {
-        showCustomAlert('⚠️ Bạn chưa đặt cược cửa nào trong phiên này!');
-        return;
-    }
-
-    let targetEl = document.querySelector('.token-display-badge') || document.getElementById('openLoginModal');
-    let sourceEl = txUserChoice === 'tai' ? document.getElementById('txTaiSide') : document.getElementById('txXiuSide');
-
-    animateFlyingCoin(sourceEl, targetEl, () => {
-        userTokens += txUserBetAmount;
-        txUserBetAmount = 0;
-        txUserChoice = null;
-        saveUserTokens();
-        updateUI();
-
-        if (txTaiUser) txTaiUser.innerText = '0';
-        if (txXiuUser) txXiuUser.innerText = '0';
-        document.getElementById('txTaiSide')?.classList.remove('selected-side');
-        document.getElementById('txXiuSide')?.classList.remove('selected-side');
-        showCustomAlert('✅ Đã hủy cược và hoàn trả toàn bộ token về tài khoản.');
-    });
-});
-
-function checkDailyCapStatus() {
-    let records = JSON.parse(localStorage.getItem('g6_tx_winnings_log') || '[]');
-    let now = Date.now();
-    // Lọc các chiến thắng trong 24h qua
-    records = records.filter(item => now - item.time < 24 * 3600 * 1000);
-    localStorage.setItem('g6_tx_winnings_log', JSON.stringify(records));
-
-    let totalWonIn24h = records.reduce((sum, item) => sum + item.amount, 0);
-
-    if (totalWonIn24h >= 100) {
-        // Tìm bản ghi cũ nhất trong danh sách 24h để tính thời gian mở khóa (sau 24h kể từ lúc đạt mốc)
-        let oldestRecord = records.reduce((oldest, item) => item.time < oldest.time ? item : oldest, records[0]);
-        let unlockTime = oldestRecord.time + 24 * 3600 * 1000;
-        let diffMs = unlockTime - now;
-
-        if (diffMs > 0) {
-            let hours = Math.floor(diffMs / (1000 * 3600));
-            let minutes = Math.floor((diffMs % (1000 * 3600)) / (1000 * 60));
-            let seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
-            let timeStr = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-            return { isLocked: true, remainingTimeStr: timeStr };
-        }
-    }
-    return { isLocked: false, remainingTimeStr: "" };
-}
-
-// Xử lý đặt cược chung (Chặn ngay nếu đạt hạn mức 100 token/24h)
-function placeOrSwitchBet(choice) {
-    if (txState !== 'betting') {
-        showCustomAlert('⚠️ Đã qua thời gian đặt cược của phiên này!');
-        return;
-    }
-
-    // Kiểm tra chặn hạn mức 24h trước khi cho cược
-    let capStatus = checkDailyCapStatus();
-    if (capStatus.isLocked) {
-        showCustomAlert(`🚫 Bạn đã đạt giới hạn nhận tối đa 100 Token trong vòng 24h qua!\nVui lòng đợi thêm [${capStatus.remainingTimeStr}] để tiếp tục đặt cược.`);
-        return;
-    }
-
-    let betVal = parseInt(txBetInput?.value || '1');
-    if (isNaN(betVal) || betVal < 1 || betVal > 20) {
-        showCustomAlert('⚠️ Mức cược mỗi lần phải từ 1 đến 20 token!');
-        return;
-    }
-
-    let sourceEl = document.querySelector('.token-display-badge') || document.getElementById('openLoginModal');
-    let targetEl = choice === 'tai' ? document.getElementById('txTaiSide') : document.getElementById('txXiuSide');
-
-    if (txUserChoice === choice) {
-        if (txUserBetAmount + betVal > 20) {
-            showCustomAlert('⚠️ Tổng số tiền cược tối đa trong 1 phiên cho phép là 20 Token!');
+            showCustomAlert('⚠️ Tổng số tiền cược tối đa trong 1 phiên là 20 Token!');
             return;
         }
         if (userTokens < betVal) {
@@ -1392,8 +1226,37 @@ function placeOrSwitchBet(choice) {
     }
 }
 
-// Render bảng lịch sử cầu từ góc trái trên, hỗ trợ cuộn ngang
-// Render bảng lịch sử cầu (Tối đa 30 cột, từ cột 31 sẽ tự động xóa cột đầu tiên)
+btnTxTai?.addEventListener('click', () => placeOrSwitchBet('tai'));
+btnTxXiu?.addEventListener('click', () => placeOrSwitchBet('xiu'));
+
+btnTxCancel?.addEventListener('click', () => {
+    if (txState !== 'betting') {
+        showCustomAlert('⚠️ Không thể hủy cược khi đã qua thời gian đặt cược!');
+        return;
+    }
+    if (txUserBetAmount <= 0) {
+        showCustomAlert('⚠️ Bạn chưa đặt cược cửa nào trong phiên này!');
+        return;
+    }
+
+    let targetEl = document.querySelector('.token-display-badge') || document.getElementById('openLoginModal');
+    let sourceEl = txUserChoice === 'tai' ? document.getElementById('txTaiSide') : document.getElementById('txXiuSide');
+
+    animateFlyingCoin(sourceEl, targetEl, () => {
+        userTokens += txUserBetAmount;
+        txUserBetAmount = 0;
+        txUserChoice = null;
+        saveUserTokens();
+        updateUI();
+
+        if (txTaiUser) txTaiUser.innerText = '0';
+        if (txXiuUser) txXiuUser.innerText = '0';
+        document.getElementById('txTaiSide')?.classList.remove('selected-side');
+        document.getElementById('txXiuSide')?.classList.remove('selected-side');
+        showCustomAlert('✅ Đã hủy cược và hoàn trả toàn bộ token về tài khoản.');
+    });
+});
+
 function renderTxHistory() {
     if (!txHistoryGrid) return;
     txHistoryGrid.innerHTML = '';
@@ -1420,7 +1283,6 @@ function renderTxHistory() {
         columns.push(currentCol);
     }
 
-    // Giới hạn tối đa 30 cột, nếu vượt quá thì cắt bỏ các cột cũ phía đầu
     if (columns.length > 30) {
         columns = columns.slice(columns.length - 30);
     }
@@ -1438,7 +1300,6 @@ function renderTxHistory() {
     });
 }
 
-// Vòng lặp Tài Xỉu
 function startTxGameLoop() {
     let session = Math.floor(Math.random() * 9000) + 1000;
     if (txSessionNumEl) txSessionNumEl.innerText = session;
@@ -1481,12 +1342,11 @@ function runTxSpinPhase() {
     if (txDice2) txDice2.innerText = diceFaces[d2 - 1];
     if (txDice3) txDice3.innerText = diceFaces[d3 - 1];
 
-    // Sau 3 giây lắc xong -> Mở đĩa (hiện xúc xắc trước)
     setTimeout(() => {
         txState = 'waiting_result';
         if (txBowl) {
             txBowl.classList.remove('shaking');
-            txBowl.classList.add('hidden-bowl'); // Mở đĩa ra
+            txBowl.classList.add('hidden-bowl'); // Mở đĩa
         }
 
         let resultName = finalResult === 'tai' ? 'TÀI' : 'XỈU';
@@ -1494,51 +1354,43 @@ function runTxSpinPhase() {
             txResultAnnouncement.innerHTML = `🎲 Xúc xắc: <span style="color:#f1c40f">${d1} - ${d2} - ${d3}</span> (Chờ thông báo kết quả...)`;
         }
 
-        // Đợi thêm 5 giây để người chơi nhìn thấy xúc xắc trước khi hiện thông báo kết quả
         setTimeout(() => {
             txState = 'result';
             if (txResultAnnouncement) {
                 txResultAnnouncement.innerHTML = `🎉 Kết quả: <span style="color:#f1c40f">${d1} - ${d2} - ${d3} (Tổng: ${sum} điểm -> ${resultName})</span>`;
             }
 
-            // Ghi nhận vào lịch sử cầu
             txHistoryList.push(finalResult);
             localStorage.setItem('g6_tx_history', JSON.stringify(txHistoryList));
             renderTxHistory();
 
-            // Xử lý thắng thua & Hiệu ứng tiền bay ra nếu trúng
+            // Xử lý trả thưởng nếu người chơi cược đúng cửa
             if (txUserBetAmount > 0) {
                 if (txUserChoice === finalResult) {
-                    let rawWin = txUserBetAmount * 2;
-                    let actualWin = checkDailyWinCap(rawWin);
-
+                    let winnings = txUserBetAmount * 2;
                     let sourceEl = txUserChoice === 'tai' ? document.getElementById('txTaiSide') : document.getElementById('txXiuSide');
                     let targetEl = document.querySelector('.token-display-badge') || document.getElementById('openLoginModal');
 
                     animateFlyingCoin(sourceEl, targetEl, () => {
-                        userTokens += actualWin;
+                        userTokens += winnings;
                         saveUserTokens();
                         updateUI();
                     });
 
-                    if (actualWin > 0) {
-                        showCustomAlert(`🎉 Chúc mừng bạn đã thắng cược! Nhận được +${actualWin} Token.`);
-                    } else {
-                        showCustomAlert(`🎉 Bạn đoán đúng nhưng đã đạt giới hạn nhận tối đa 100 Token trong vòng 24h qua!`);
-                    }
+                    showCustomAlert(`🎉 Chúc mừng bạn đã thắng cược! Nhận được +${winnings} Token.`);
                 } else {
                     showCustomAlert(`😢 Rất tiếc, bạn đã thua ${txUserBetAmount} Token ở phiên này.`);
                 }
             }
 
-            // Chờ 5 giây rồi bắt đầu phiên mới
+            // Tự động chuyển sang phiên mới sau 5 giây
             setTimeout(() => {
                 startTxGameLoop();
             }, 5000);
 
-        }, 5000); // Đợi 5s hiển thị xúc xắc
+        }, 3000); 
 
-    }, 3000); // Lắc trong 3s
+    }, 3000); 
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -1781,7 +1633,9 @@ function showAmuletResults(rewards) {
         let card = document.createElement('div');
         card.className = 'amulet-reward-card';
         card.innerHTML = `
-            <img src="${rew.icon}" alt="Huy hiệu" class="amulet-reward-img">
+            <div class="amulet-reward-img-box">
+                <img src="${rew.icon}" alt="Huy hiệu" class="amulet-reward-img">
+            </div>
             <span class="amulet-reward-name">${rew.name}</span>
         `;
         amuletRewardsGrid.appendChild(card);
@@ -2063,3 +1917,246 @@ convConfirmYes?.addEventListener('click', () => {
     showCustomAlert(`🎉 Đổi thành công ${currentConvQuantity} x [${selectedConversionItem.name}]! Đã thêm vào Tủ đồ.`);
 });
 
+// --- DANH SÁCH CÂU HỎI TOÁN HỌC (CHUẨN ĐỊNH DẠNG TOÁN HỌC) ---
+const mathQuestionsData = [
+    {
+        question: "Hàm số y = -x<sup>3</sup> + 3x<sup>2</sup> - 4 đồng biến trên khoảng nào dưới đây?",
+        options: ["(0; 2)", "(-∞; 0)", "(2; +∞)", "(-∞; 2)"],
+        correctAnswer: "(0; 2)"
+    },
+    {
+        question: "Tọa độ điểm cực tiểu của đồ thị hàm số y = x<sup>3</sup> - 3x + 2 là:",
+        options: ["M(1; 0)", "N(-1; 4)", "x = 1", "y = 0"],
+        correctAnswer: "M(1; 0)"
+    },
+    {
+        question: "Hàm số y = <span class='math-fraction'><span class='numerator'>2x - 1</span><span class='denominator'>x + 1</span></span> đồng biến trên các khoảng nào sau đây?",
+        options: ["(-∞; -1) và (-1; +∞)", "ℝ \\ {-1}", "(-∞; -1) ∪ (-1; +∞)", "(-∞; +∞)"],
+        correctAnswer: "(-∞; -1) và (-1; +∞)"
+    },
+    {
+        question: "Hàm số y = x<sup>3</sup> - 3x<sup>2</sup> + 2 có bao nhiêu điểm cực trị?",
+        options: ["2", "0", "1", "3"],
+        correctAnswer: "2"
+    },
+    {
+        question: "Khoảng nghịch biến của hàm số y = -x<sup>3</sup> + 3x là:",
+        options: ["(-∞; -1) và (1; +∞)", "(-1; 1)", "(-∞; 1)", "(-1; +∞)"],
+        correctAnswer: "(-∞; -1) và (1; +∞)"
+    },
+    {
+        question: "Điểm cực đại của hàm số y = x<sup>4</sup> - 2x<sup>2</sup> + 3 là:",
+        options: ["x = 0", "x = 1", "x = -1", "y = 3"],
+        correctAnswer: "x = 0"
+    },
+    {
+        question: "Giá trị cực tiểu của hàm số y = x<sup>3</sup> - 3x<sup>2</sup> + 4 là:",
+        options: ["0", "4", "2", "-2"],
+        correctAnswer: "0"
+    },
+    {
+        question: "Hàm số nào sau đây nghịch biến trên toàn trục số ℝ?",
+        options: ["y = -x<sup>3</sup> - 2x + 1", "y = -x<sup>3</sup> + 3x", "y = <span class='math-fraction'><span class='numerator'>x - 1</span><span class='denominator'>x + 1</span></span>", "y = -x<sup>4</sup> + 2x<sup>2</sup>"],
+        correctAnswer: "y = -x<sup>3</sup> - 2x + 1"
+    },
+    {
+        question: "Đồ thị hàm số y = x<sup>3</sup> - 3x + 1 có điểm cực đại là:",
+        options: ["(-1; 3)", "(1; -1)", "x = -1", "y = 3"],
+        correctAnswer: "(-1; 3)"
+    },
+    {
+        question: "Giá trị lớn nhất của hàm số y = |x<sup>2</sup> - 4x + 3| trên đoạn [0; 4] bằng:",
+        options: ["4", "3", "1", "0"],
+        correctAnswer: "4"
+    },
+    {
+        question: "Giá trị lớn nhất của hàm số y = <span class='math-fraction'><span class='numerator'>2x - 1</span><span class='denominator'>x + 1</span></span> trên đoạn [0; 3] là:",
+        options: ["<span class='math-fraction'><span class='numerator'>5</span><span class='denominator'>4</span></span>", "-1", "2", "1"],
+        correctAnswer: "<span class='math-fraction'><span class='numerator'>5</span><span class='denominator'>4</span></span>"
+    },
+    {
+        question: "Hàm số y = x<sup>4</sup> - 2x<sup>2</sup> + 3 đạt giá trị nhỏ nhất trên ℝ tại các điểm:",
+        options: ["x = ±1", "x = 0", "x = 2", "x = ±2"],
+        correctAnswer: "x = ±1"
+    },
+    {
+        question: "Giá trị lớn nhất của hàm số y = -x<sup>3</sup> + 3x<sup>2</sup> + 1 trên đoạn [0; 3] bằng:",
+        options: ["5", "1", "4", "2"],
+        correctAnswer: "5"
+    },
+    {
+        question: "Giá trị nhỏ nhất của hàm số y = <span class='math-fraction'><span class='numerator'>x - 3</span><span class='denominator'>x + 1</span></span> trên đoạn [0; 2] bằng:",
+        options: ["-3", "<span class='math-fraction'><span class='numerator'>-1</span><span class='denominator'>3</span></span>", "0", "-1"],
+        correctAnswer: "-3"
+    },
+    {
+        question: "Giá trị lớn nhất của hàm số y = <span class='math-sqrt'><span>√</span><span class='math-radicand'>4 - x<sup>2</sup></span></span> trên đoạn [-2; 2] bằng:",
+        options: ["2", "4", "0", "√2"],
+        correctAnswer: "2"
+    },
+    {
+        question: "Giá trị nhỏ nhất của hàm số y = x + <span class='math-fraction'><span class='numerator'>9</span><span class='denominator'>x</span></span> trên khoảng (0; +∞) bằng:",
+        options: ["6", "9", "3", "10"],
+        correctAnswer: "6"
+    },
+    {
+        question: "Giá trị lớn nhất của hàm số y = -x<sup>4</sup> + 8x<sup>2</sup> + 1 trên đoạn [-1; 3] bằng:",
+        options: ["17", "8", "1", "-8"],
+        correctAnswer: "17"
+    }
+];
+
+let currentQuizIndex = 0;
+let selectedOptionIndex = null;
+let correctOptionIndex = null;
+let quizAnsweredCountToday = 0;
+let quizTokensEarnedToday = 0;
+
+function initMathQuiz() {
+    loadQuizDataFromStorage();
+    renderQuizQuestion();
+}
+
+function loadQuizDataFromStorage() {
+    const todayStr = new Date().toDateString();
+    const savedDate = localStorage.getItem('sanrio_quiz_date');
+    if (savedDate !== todayStr) {
+        localStorage.setItem('sanrio_quiz_date', todayStr);
+        localStorage.setItem('sanrio_quiz_count', '0');
+        quizAnsweredCountToday = 0;
+    } else {
+        quizAnsweredCountToday = parseInt(localStorage.getItem('sanrio_quiz_count') || '0');
+    }
+    document.getElementById('quizCountToday').textContent = quizAnsweredCountToday;
+    document.getElementById('quizTokensEarned').textContent = quizTokensEarnedToday;
+}
+
+// Hàm xáo trộn mảng ngẫu nhiên kết hợp đảo đáp án
+function shuffleArray(array) {
+    let arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+function renderQuizQuestion() {
+    if (quizAnsweredCountToday >= 10) {
+        document.getElementById('quizQuestionCard').style.display = 'none';
+        document.getElementById('quizFinishedMsg').style.display = 'block';
+        return;
+    }
+
+    const q = mathQuestionsData[currentQuizIndex % mathQuestionsData.length];
+    document.getElementById('quizQNum').textContent = `Câu hỏi ${quizAnsweredCountToday + 1} (Tổng 10 câu/ngày):`;
+    document.getElementById('quizQText').innerHTML = q.question; // Sử dụng innerHTML để render biểu thức đẹp
+
+    // Xáo trộn vị trí các đáp án và xác định vị trí đúng mới
+    const shuffledOpts = shuffleArray(q.options);
+    correctOptionIndex = shuffledOpts.indexOf(q.correctAnswer);
+
+    const optionsGrid = document.getElementById('quizOptionsGrid');
+    optionsGrid.innerHTML = '';
+    selectedOptionIndex = null;
+
+    const labels = ['A', 'B', 'C', 'D'];
+    shuffledOpts.forEach((optText, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-option-btn';
+        btn.innerHTML = `<b>${labels[idx]}.</b> ${optText}`; // Sử dụng innerHTML để render phân số trong đáp án
+        btn.onclick = () => {
+            document.querySelectorAll('.quiz-option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            selectedOptionIndex = idx;
+            document.getElementById('btnSubmitQuiz').style.display = 'inline-block';
+        };
+        optionsGrid.appendChild(btn);
+    });
+
+    document.getElementById('btnSubmitQuiz').style.display = 'none';
+    document.getElementById('btnNextQuiz').style.display = 'none';
+}
+
+// Xử lý nộp bài và chuyển câu hỏi
+document.addEventListener('click', function(e) {
+    if (e.target && e.target.id === 'btnSubmitQuiz') {
+        if (selectedOptionIndex === null) return;
+        
+        const optionBtns = document.querySelectorAll('.quiz-option-btn');
+        
+        optionBtns.forEach((b, idx) => {
+            b.style.pointerEvents = 'none';
+            if (idx === correctOptionIndex) b.classList.add('correct');
+            else if (idx === selectedOptionIndex) b.classList.add('incorrect');
+        });
+
+        quizAnsweredCountToday++;
+        localStorage.setItem('sanrio_quiz_count', quizAnsweredCountToday);
+        document.getElementById('quizCountToday').textContent = quizAnsweredCountToday;
+
+        if (selectedOptionIndex === correctOptionIndex) {
+            quizTokensEarnedToday += 10;
+            if (typeof userTokens !== 'undefined') {
+                userTokens += 10;
+                if (typeof updateTokenDisplay === 'function') updateTokenDisplay();
+            }
+            showCustomAlert("Chính xác! Bạn nhận được 10 Token 💕");
+        } else {
+            showCustomAlert("Tiếc quá, đáp án chưa chính xác!");
+        }
+
+        document.getElementById('quizTokensEarned').textContent = quizTokensEarnedToday;
+        document.getElementById('btnSubmitQuiz').style.display = 'none';
+        document.getElementById('btnNextQuiz').style.display = 'inline-block';
+    }
+
+    if (e.target && e.target.id === 'btnNextQuiz') {
+        currentQuizIndex++;
+        renderQuizQuestion();
+    }
+});
+
+document.querySelectorAll('.sidebar-menu .menu-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = this.getAttribute('data-target');
+        if (!target) return;
+
+        // Active class cho menu sidebar
+        document.querySelectorAll('.sidebar-menu .menu-item').forEach(m => m.classList.remove('active'));
+        this.classList.add('active');
+
+        // Ẩn tất cả các content-body
+        document.querySelectorAll('.content-body').forEach(view => {
+            view.style.display = 'none';
+        });
+
+        // Hiển thị view tương ứng
+        if (target === 'home') {
+            document.getElementById('homeView').style.display = 'block';
+        } else if (target === 'wheel8') {
+            document.getElementById('wheel8View').style.display = 'block';
+        } else if (target === 'inventory') {
+            document.getElementById('chestGameView').style.display = 'block';
+        } else if (target === 'taixiu') {
+            document.getElementById('taixiuView').style.display = 'block';
+        } else if (target === 'amulet') {
+            document.getElementById('amuletView').style.display = 'block';
+        } else if (target === 'slot') {
+            document.getElementById('slotView').style.display = 'block';
+        } else if (target === 'lottery') {
+            document.getElementById('lotteryView').style.display = 'block';
+        } else if (target === 'conversion') {
+            document.getElementById('conversionView').style.display = 'block';
+        } else if (target === 'mathQuiz') {
+            document.getElementById('mathQuizView').style.display = 'block';
+        } else {
+            document.getElementById('otherView').style.display = 'block';
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    initMathQuiz();
+});
